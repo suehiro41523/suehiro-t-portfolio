@@ -6,7 +6,7 @@ export const Experience = () => {
     <Box pos={'relative'}>
       <Container maxW={'1200px'}>
         <Heading2 subheading="Experience" heading="過去の経験" />
-        <Box mb={'42px'} ml={'24px'} pb={'26vw'} color={'gray.200'}>
+        <Box ml={'24px'} pb={'26vw'} color={'gray.200'}>
           今の私に至るまでの道のりをご覧ください。
           <Box
             pos={'absolute'}

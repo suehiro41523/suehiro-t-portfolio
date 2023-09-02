@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <main>
       <ChakraProvider theme={theme}>
-        <Box minH={'100vh'} bgColor={'gray.700'}>
+        <Box overflowX={'hidden'} minH={'100vh'} bgColor={'gray.700'}>
           <Firstview />
           <Profile />
           <SkillSet />
