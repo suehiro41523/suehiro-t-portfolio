@@ -9,7 +9,7 @@ export const Heading2 = ({ subheading, heading }: Props) => {
     <Box
       pos={'relative'}
       mb={'24px'}
-      pl={'16px'}
+      pl={'20px'}
       color={'gray.200'}
       fontSize={'sm'}
       _before={{
@@ -21,7 +21,7 @@ export const Heading2 = ({ subheading, heading }: Props) => {
         width: '4px',
         background: 'gray.200',
       }}
-      paddingInline={'4px'}
+      paddingBlock={'4px'}
     >
       <Box>{subheading}</Box>
       <Heading fontSize={'lg'}>{heading}</Heading>

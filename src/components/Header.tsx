@@ -9,22 +9,22 @@ import {
   MenuList,
   MenuItem,
   IconButton,
+  Link,
 } from '@chakra-ui/react';
-import { HamburgerIcon } from '@chakra-ui/icons';
 
 export const Header = () => {
   return (
     <Box
       pos={'relative'}
-      background={'gray.200'}
-      paddingY={'42px'}
-      marginBottom={'100px'}
+      mb={'100px'}
+      py={'42px'}
       fontWeight={'bold'}
+      bg={'gray.200'}
     >
       <Container
-        maxW={{ xl: '1200px' }}
-        display={'flex'}
         justifyContent={'space-between'}
+        display={'flex'}
+        maxW={{ xl: '1200px' }}
       >
         <Box>Suehiro&apos;s portfolio</Box>
         {/* ハンバーガーメニュー */}
@@ -33,23 +33,22 @@ export const Header = () => {
             <MenuButton
               as={IconButton}
               aria-label="Options"
-              icon={<HamburgerIcon />}
               variant="outline"
             />
             <MenuList>
-              <MenuItem as="a" href={'#profile'} fontWeight={'bold'}>
+              <MenuItem as="a" fontWeight={'bold'} href={'#profile'}>
                 Profile
               </MenuItem>
-              <MenuItem as="a" href={'#skillset'} fontWeight={'bold'}>
+              <MenuItem as="a" fontWeight={'bold'} href={'#skillset'}>
                 Skill-set
               </MenuItem>
-              <MenuItem as="a" href={'#experience'} fontWeight={'bold'}>
+              <MenuItem as="a" fontWeight={'bold'} href={'#experience'}>
                 Experience
               </MenuItem>
-              <MenuItem as="a" href={'#work'} fontWeight={'bold'}>
+              <MenuItem as="a" fontWeight={'bold'} href={'#work'}>
                 Work
               </MenuItem>
-              <MenuItem as="a" href={'#mythought'} fontWeight={'bold'}>
+              <MenuItem as="a" fontWeight={'bold'} href={'#mythought'}>
                 My thought
               </MenuItem>
             </MenuList>
@@ -58,34 +57,34 @@ export const Header = () => {
         {/* 常時展開メニュー */}
         <Box display={{ base: 'none', md: 'block' }}>
           <nav>
-            <UnorderedList display={'flex'} styleType={'none'} gap={'42px'}>
-              <ListItem as={'a'} href={'#profile'}>
-                Profile
+            <UnorderedList gap={'42px'} display={'flex'} styleType={'none'}>
+              <ListItem>
+                <Link href={'#profile'}>Profile</Link>
               </ListItem>
-              <ListItem as={'a'} href={'#skillset'}>
-                Skill-set
+              <ListItem>
+                <Link href={'#skillset'}>Skill-set</Link>
               </ListItem>
-              <ListItem as={'a'} href={'#experience'}>
-                Experience
+              <ListItem>
+                <Link href={'#experience'}>Experience</Link>
               </ListItem>
-              <ListItem as={'a'} href={'#work'}>
-                Work
+              <ListItem>
+                <Link href={'#work'}>Work</Link>
               </ListItem>
-              <ListItem as={'a'} href={'#mythought'}>
-                My thought
+              <ListItem>
+                <Link href={'#mythought'}>My thought</Link>
               </ListItem>
             </UnorderedList>
           </nav>
         </Box>
       </Container>
       <Box
-        w={'100%'}
-        bottom={0}
-        translateY={'99%'}
-        transform={'auto'}
         pos={'absolute'}
+        bottom={0}
+        w={'100%'}
+        transform={'auto'}
+        translateY={'99%'}
       >
-        <Image htmlWidth={'100%'} src={'/header/cloud.svg'} alt=""></Image>
+        <Image alt="" htmlWidth={'100%'} src={'/header/cloud.svg'}></Image>
       </Box>
     </Box>
   );
