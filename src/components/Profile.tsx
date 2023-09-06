@@ -5,7 +5,7 @@ import { TimelineList } from './TimlineList';
 
 export const Profile = () => {
   return (
-    <Container maxW={'1200px'} mb={'286px'} color={'gray.200'}>
+    <Container maxW={'1200px'} mb={'286px'} color={'gray.200'} id="profile">
       <Heading2 subheading="profile" heading="基本情報" />
       <Box gap={'90px'} display={'flex'} mb={'380px'}>
         <Box>

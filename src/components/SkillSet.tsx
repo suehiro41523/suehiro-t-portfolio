@@ -5,7 +5,7 @@ import { Heading2 } from './HeadingTwo';
 
 export const SkillSet = () => {
   return (
-    <Container maxW={'1200px'} mb={'286px'}>
+    <Container maxW={'1200px'} mb={'286px'} id="skillset">
       <Heading2 subheading="Skill-set" heading="スキルセット" />
       <Box
         justifyContent={'space-between'}

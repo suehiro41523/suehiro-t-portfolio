@@ -3,7 +3,7 @@ import { Heading2 } from './HeadingTwo';
 
 export const Experience = () => {
   return (
-    <Box pos={'relative'}>
+    <Box pos={'relative'} id="experience">
       <Container maxW={'1200px'}>
         <Heading2 subheading="Experience" heading="過去の経験" />
         <Box ml={'24px'} pb={'26vw'} color={'gray.200'}>
@@ -35,7 +35,7 @@ export const Experience = () => {
               maxW={'552px'}
               mb={'42px'}
               ml={'24px'}
-              lineHeight={'20px'}
+              lineHeight={'24px'}
               letterSpacing={'0.48px'}
             >
               <Text paddingInline={'16px'}>
@@ -84,7 +84,7 @@ export const Experience = () => {
                 w={'fit-content'}
                 maxW={'552px'}
                 ml={'24px'}
-                lineHeight={'20px'}
+                lineHeight={'24px'}
                 letterSpacing={'0.48px'}
               >
                 <Text paddingInline={'16px'}>

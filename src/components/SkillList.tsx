@@ -1,12 +1,5 @@
 import { Box, Heading } from '@chakra-ui/react';
-import { type } from 'os';
-import {
-  ReactElement,
-  JSXElementConstructor,
-  ReactNode,
-  ReactPortal,
-  PromiseLikeOfReactNode,
-} from 'react';
+import { ReactNode } from 'react';
 
 type Props = {
   category: string;
