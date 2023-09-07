@@ -59,8 +59,8 @@ export const Work = () => {
                   paddingInline={'16px'}
                 >
                   {article.title}
+                  <Image alt="" src="/arrowRight.svg" />
                 </Link>
-                <Image alt="" src="/components/arrowRight.svg" />
               </ListItem>
             ))}
           </UnorderedList>
