@@ -16,7 +16,7 @@ import { Heading2 } from './HeadingTwo';
 async function getData() {
   const result = await fetch('https://suehiro.microcms.io/api/v1/blogs', {
     headers: {
-      'X-MICROCMS-API-KEY': 'dOb8s5yVV4Doz07tZwbvpGggrNHUJHHMVW18',
+      'X-MICROCMS-API-KEY': process.env.API_KEY as string,
     },
   }).then((res) => res.json());
   return result;
@@ -54,7 +54,7 @@ export const Work = () => {
                   display={'flex'}
                   border={'1px solid var(--chakra-colors-yellow-400)'}
                   borderRadius={'8px'}
-                  href={`/works/${article.title}`}
+                  href={`/works/${article.id}`}
                   paddingBlock={'8px'}
                   paddingInline={'16px'}
                 >
