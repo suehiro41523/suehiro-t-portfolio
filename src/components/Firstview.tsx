@@ -14,7 +14,7 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
 
-import { Header } from './Header';
+import { HeaderForTop } from './HeaderForTop';
 
 export const Firstview = () => {
   let canvas: HTMLCanvasElement;
@@ -106,7 +106,7 @@ export const Firstview = () => {
   }, [width, height]);
   return (
     <Box>
-      <Header />
+      <HeaderForTop />
       <Box
         pos={'relative'}
         maxW={'1200px'}
