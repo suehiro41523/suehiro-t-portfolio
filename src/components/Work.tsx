@@ -1,3 +1,5 @@
+'use client';
+
 import { use } from 'react';
 import { Blog } from '../types/blog';
 
@@ -12,19 +14,10 @@ import {
   Image,
 } from '@chakra-ui/react';
 import { Heading2 } from './HeadingTwo';
-
-async function getData() {
-  const result = await fetch('https://suehiro.microcms.io/api/v1/blogs', {
-    headers: {
-      'X-MICROCMS-API-KEY': process.env.API_KEY as string,
-    },
-  }).then((res) => res.json());
-  return result;
-}
+import { blogData } from '../app/data/getBlogData';
 
 export const Work = () => {
-  const data = use(getData());
-  console.log(data);
+  const data = blogData(undefined);
 
   return (
     <Container maxW={'1200px'} id="work">
@@ -48,7 +41,7 @@ export const Work = () => {
             maxW={'522px'}
           >
             {data.contents.map((article: Blog) => (
-              <ListItem key={article.id}>
+              <ListItem key={article.id} suppressHydrationWarning>
                 <Link
                   justifyContent={'space-between'}
                   display={'flex'}
@@ -57,6 +50,7 @@ export const Work = () => {
                   href={`/works/${article.id}`}
                   paddingBlock={'8px'}
                   paddingInline={'16px'}
+                  suppressHydrationWarning
                 >
                   {article.title}
                   <Image alt="" src="/arrowRight.svg" />
