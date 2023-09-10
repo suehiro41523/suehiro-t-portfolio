@@ -8,7 +8,6 @@ import {
   Link,
   Image,
 } from '@chakra-ui/react';
-import { Blog } from '../../../types/blog';
 import { ExternalLinkIcon, ArrowUpDownIcon } from '@chakra-ui/icons';
 
 import { HeaderForDynamic } from '../../../components/HeaderForDynamic';
