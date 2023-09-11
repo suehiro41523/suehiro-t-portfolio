@@ -17,6 +17,5 @@ async function getContentData(cat: string, id?: string | undefined) {
 
 export function contentData(cat: string, param: string | undefined) {
   const data = use(getContentData(cat, param));
-  console.log(data);
   return data;
 }
