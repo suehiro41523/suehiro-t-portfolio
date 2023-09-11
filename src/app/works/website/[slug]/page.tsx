@@ -10,18 +10,19 @@ import {
 } from '@chakra-ui/react';
 import { ExternalLinkIcon, ArrowUpDownIcon } from '@chakra-ui/icons';
 
-import { HeaderForDynamic } from '../../../components/HeaderForDynamic';
-import { blogData } from '../../data/getBlogData';
+import { HeaderForDynamic } from '../../../../components/HeaderForDynamic';
+import { Footer } from '../../../../components/Footer';
+import { contentData } from '../../../data/getContentData';
 
 export default function Page({ params }: { params: { slug: string } }) {
   const theme = extendTheme({});
-  const data = blogData(params.slug);
+  const data = contentData('blogs', params.slug);
   const workNumber = ('0' + data.workNumber).slice(-2);
   return (
     <ChakraProvider theme={theme}>
       <Box minH={'100vh'} bg={'gray.700'}>
         <HeaderForDynamic />
-        <Box maxW={'1200px'} mx={'auto'} color={'gray.200'}>
+        <Box maxW={'1200px'} mx={'auto'} mb={'170px'} color={'gray.200'}>
           <Heading as={'h2'} mb={'60px'} fontSize={'lg'}>
             <Box color={'gray.600'} fontSize={'sm'} fontWeight={'bold'}>
               Work{workNumber}
@@ -66,6 +67,7 @@ export default function Page({ params }: { params: { slug: string } }) {
             </Box>
           </Box>
         </Box>
+        <Footer />
       </Box>
     </ChakraProvider>
   );

@@ -8,7 +8,7 @@ export const Heading2 = ({ subheading, heading }: Props) => {
   return (
     <Box
       pos={'relative'}
-      mb={'24px'}
+      mb={'40px'}
       pl={'20px'}
       color={'gray.200'}
       fontSize={'sm'}

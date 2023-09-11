@@ -6,6 +6,8 @@ import { Profile } from '../components/Profile';
 import { SkillSet } from '../components/SkillSet';
 import { Experience } from '../components/Experience';
 import { Work } from '../components/Work';
+import { MyThought } from '../components/MyThought';
+import { Footer } from '../components/Footer';
 
 export default function Home() {
   const theme = extendTheme({});
@@ -19,6 +21,8 @@ export default function Home() {
           <SkillSet />
           <Experience />
           <Work />
+          <MyThought />
+          <Footer />
         </Box>
       </ChakraProvider>
     </main>

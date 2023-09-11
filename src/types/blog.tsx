@@ -44,3 +44,18 @@ export type Article = {
     | null
     | undefined;
 };
+
+export type Dtp = {
+  id: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  revisedAt: string;
+  title: string;
+  content: string;
+  workImage: {
+    url: string;
+    height: number;
+    width: number;
+  };
+};

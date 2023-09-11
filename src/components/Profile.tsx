@@ -54,9 +54,7 @@ export const Profile = () => {
             <TimelineList period={'2020/03'} career={'web学習開始'} />
             <TimelineList
               period={'2021/01'}
-              career={
-                '一般社団法人ドーアキャッスル web講師としてアルバイトを開始'
-              }
+              career={'某障害福祉事業所 web講師としてアルバイトを開始'}
             />
             <TimelineList
               period={'2022/03'}
@@ -64,7 +62,7 @@ export const Profile = () => {
             />
             <TimelineList
               period={'2022/04'}
-              career={' 一般社団法人ドーアキャッスル入社 web講師'}
+              career={' 某障害福祉事業所入社 web講師'}
             />
             <TimelineList period={'2023/05'} career={'退社'} />
           </Box>
