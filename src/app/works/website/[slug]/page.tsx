@@ -3,6 +3,7 @@
 import {
   extendTheme,
   Box,
+  Container,
   ChakraProvider,
   Heading,
   Link,
@@ -22,7 +23,7 @@ export default function Page({ params }: { params: { slug: string } }) {
     <ChakraProvider theme={theme}>
       <Box minH={'100vh'} bg={'gray.700'}>
         <HeaderForDynamic />
-        <Box maxW={'1200px'} mx={'auto'} mb={'170px'} color={'gray.200'}>
+        <Container maxW={'1200px'} mx={'auto'} mb={'170px'} color={'gray.200'}>
           <Heading as={'h2'} mb={'60px'} fontSize={'lg'}>
             <Box color={'gray.600'} fontSize={'sm'} fontWeight={'bold'}>
               Work{workNumber}
@@ -32,7 +33,12 @@ export default function Page({ params }: { params: { slug: string } }) {
               <ExternalLinkIcon />
             </Link>
           </Heading>
-          <Box justifyContent={'space-between'} display={'flex'}>
+          <Box
+            justifyContent={'space-between'}
+            flexDir={{ base: 'column-reverse', lg: 'row' }}
+            gap={'32px'}
+            display={'flex'}
+          >
             <Box
               className={'content'}
               maxW={'420px'}
@@ -66,7 +72,7 @@ export default function Page({ params }: { params: { slug: string } }) {
               )}
             </Box>
           </Box>
-        </Box>
+        </Container>
         <Footer />
       </Box>
     </ChakraProvider>

@@ -1,3 +1,4 @@
+import { HamburgerIcon } from '@chakra-ui/icons';
 import { Header } from './Header';
 import {
   Box,
@@ -13,7 +14,7 @@ import {
 
 export const HeaderForTop = () => {
   return (
-    <Box>
+    <Box pos={'relative'} zIndex={'20'}>
       <Header>
         {/* ハンバーガーメニュー */}
         <Box display={{ base: 'block', md: 'none' }}>
@@ -21,6 +22,8 @@ export const HeaderForTop = () => {
             <MenuButton
               as={IconButton}
               aria-label="Options"
+              colorScheme="gray.700"
+              icon={<HamburgerIcon />}
               variant="outline"
             />
             <MenuList>

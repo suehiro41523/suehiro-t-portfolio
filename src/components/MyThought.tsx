@@ -1,9 +1,9 @@
-import { Box, ListItem, UnorderedList } from '@chakra-ui/react';
+import { Box, Container, ListItem, UnorderedList } from '@chakra-ui/react';
 import { Heading2 } from './HeadingTwo';
 
 export const MyThought = () => {
   return (
-    <Box maxW={'1200px'} mx={'auto'} mb={'180px'}>
+    <Container maxW={'1200px'} mx={'auto'} mb={'180px'} id="mythought">
       <Heading2 subheading={'My Thought'} heading={'web開発における思い'} />
       <Box
         flexDir={'column'}
@@ -22,6 +22,6 @@ export const MyThought = () => {
         </UnorderedList>
         これらの性質は私の性格に向いていると感じていますし、日々楽しく学習に励むことができています。
       </Box>
-    </Box>
+    </Container>
   );
 };

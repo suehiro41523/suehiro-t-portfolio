@@ -16,6 +16,10 @@ import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
 
 import { HeaderForTop } from './HeaderForTop';
 
+type size = {
+  width: number;
+  height: number;
+};
 export const Firstview = () => {
   let canvas: HTMLCanvasElement;
   let model: THREE.Group;
@@ -26,15 +30,14 @@ export const Firstview = () => {
   useEffect(() => {
     const canvas = document.getElementById('top') as HTMLCanvasElement;
 
-    const sizes = {
-      width: width,
-      height: height,
-    };
     //scene(ファーストビュー用)
     const scene: THREE.Scene = new THREE.Scene();
     //scene(HTMLロゴ用)
     const sceneHtml: THREE.Scene = new THREE.Scene();
-
+    const sizes = {
+      width: width,
+      height: height,
+    };
     //camera(ファーストビュー用)
     const camera: THREE.PerspectiveCamera = new THREE.PerspectiveCamera(
       75,
@@ -42,7 +45,9 @@ export const Firstview = () => {
       0.1,
       2000,
     );
-    camera.position.set(-2.8, 0, 5);
+    sizes.width >= 900
+      ? camera.position.set(-2.8, 0, 5)
+      : camera.position.set(-0.4, 0, 5);
 
     //renderer(ファーストビュー用)
     const renderer = new THREE.WebGLRenderer({
@@ -65,7 +70,9 @@ export const Firstview = () => {
     gltfLoader.load('/models/laptop-pop.gltf', (gltf) => {
       // eslint-disable-next-line react-hooks/exhaustive-deps
       model = gltf.scene;
-      model.rotateY(-Math.PI / 4);
+      sizes.width >= 900
+        ? model.rotateY(-Math.PI / 4)
+        : model.rotateY(-Math.PI / 6.7);
       // model.rotateX(Math.PI / 8);
       model.scale.set(0.8, 0.8, 0.8);
       scene.add(model);
@@ -109,6 +116,7 @@ export const Firstview = () => {
       <HeaderForTop />
       <Box
         pos={'relative'}
+        zIndex={'10'}
         maxW={'1200px'}
         h={'calc(100vh - 235px)'}
         mx={'auto'}
@@ -117,6 +125,7 @@ export const Firstview = () => {
       >
         <Box
           pos={'relative'}
+          zIndex={'20'}
           justifyContent={'center'}
           flexDir={'column'}
           display={'flex'}
@@ -145,7 +154,12 @@ export const Firstview = () => {
             </UnorderedList>
           </Box>
         </Box>
-        <Box pos={'absolute'} top={0}>
+        <Box
+          pos={'absolute'}
+          zIndex={'10'}
+          top={0}
+          opacity={{ base: '0.2', lg: '1' }}
+        >
           <canvas style={{ maxWidth: '100%' }} id="top" />
         </Box>
         <Box pos="absolute" bottom={0} left={'50%'} translateX="-50%">

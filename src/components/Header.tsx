@@ -1,16 +1,4 @@
-import {
-  Box,
-  UnorderedList,
-  ListItem,
-  Container,
-  Image,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  IconButton,
-  Link,
-} from '@chakra-ui/react';
+import { Box, Container, Image } from '@chakra-ui/react';
 import { ReactNode } from 'react';
 
 type Props = {
@@ -21,7 +9,7 @@ export const Header = ({ children }: Props) => {
   return (
     <Box
       pos={'relative'}
-      mb={'122px'}
+      mb={'8.94vw'}
       py={'42px'}
       color={'gray.700'}
       fontWeight={'bold'}
@@ -42,7 +30,12 @@ export const Header = ({ children }: Props) => {
         transform={'auto'}
         translateY={'99%'}
       >
-        <Image alt="" htmlWidth={'100%'} src={'/header/cloud.svg'}></Image>
+        <Image
+          alt=""
+          htmlWidth={'100%'}
+          id="orn-cloud"
+          src={'/header/cloud.svg'}
+        />
       </Box>
     </Box>
   );
