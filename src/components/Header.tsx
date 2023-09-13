@@ -10,7 +10,7 @@ export const Header = ({ children }: Props) => {
     <Box
       pos={'relative'}
       mb={'8.94vw'}
-      py={'42px'}
+      py={{ base: '24px', lg: '42px' }}
       color={'gray.700'}
       fontWeight={'bold'}
       bg={'gray.200'}

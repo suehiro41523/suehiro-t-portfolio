@@ -1,5 +1,3 @@
-'use client';
-
 import { Blog, Dtp } from '../types/blog';
 
 import {
