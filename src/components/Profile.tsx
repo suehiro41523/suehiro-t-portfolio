@@ -16,14 +16,14 @@ export const Profile = () => {
         <Box>
           <Box ml={'24px'}>
             <Box mb={'24px'}>
-              <Box fontSize={'sm'} letterSpacing={'30%'}>
+              <Box fontSize={'sm'} letterSpacing={'0.3px'}>
                 Suehiro Tatsuya
               </Box>
               <Box
                 fontSize={'xl'}
                 fontWeight={'bold'}
                 lineHeight={'100%'}
-                letterSpacing={'20%'}
+                letterSpacing={'4px'}
               >
                 末廣 達也
               </Box>
@@ -32,7 +32,7 @@ export const Profile = () => {
               <Box mb={'12px'} color={'yellow.300'} fontWeight={'bold'}>
                 実は…
               </Box>
-              <Text maxW={'420px'} ml={'24px'}>
+              <Text maxW={'420px'} ml={'24px'} letterSpacing={'0.48px'}>
                 私は海外生活の経験があるため英語のドキュメントや動画を見て学習をすることもあります。
                 <br />
                 ネイティブほどではありませんが、文法などは染み付いているので、熟語や英単語の意味を理解していれば理解は容易です。

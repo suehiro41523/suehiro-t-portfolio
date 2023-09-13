@@ -2,6 +2,7 @@
 
 import {
   Box,
+  Container,
   Image,
   Heading,
   Text,
@@ -47,7 +48,7 @@ export const Firstview = () => {
     );
     sizes.width >= 900
       ? camera.position.set(-2.8, 0, 5)
-      : camera.position.set(-0.4, 0, 5);
+      : camera.position.set(-0.8, -0.7, 7);
 
     //renderer(ファーストビュー用)
     const renderer = new THREE.WebGLRenderer({
@@ -72,9 +73,12 @@ export const Firstview = () => {
       model = gltf.scene;
       sizes.width >= 900
         ? model.rotateY(-Math.PI / 4)
-        : model.rotateY(-Math.PI / 6.7);
+        : model.rotateY(-Math.PI / 5);
       // model.rotateX(Math.PI / 8);
-      model.scale.set(0.8, 0.8, 0.8);
+      model = gltf.scene;
+      sizes.width >= 900
+        ? model.scale.set(0.8, 0.8, 0.8)
+        : model.scale.set(1, 1, 1);
       scene.add(model);
       // pcオブジェクト展開アニメーション
       // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -110,7 +114,7 @@ export const Firstview = () => {
     });
 
     // 画面サイズが変わるごとにアニメーションを再発火し、レスポンシブ対応
-  }, [width, height]);
+  }, [width]);
   return (
     <Box>
       <HeaderForTop />
@@ -123,16 +127,17 @@ export const Firstview = () => {
         mb={'106px'}
         color={'white'}
       >
-        <Box
+        <Container
           pos={'relative'}
           zIndex={'20'}
           justifyContent={'center'}
           flexDir={'column'}
+          gap={'60px'}
           display={'flex'}
+          maxW={'1200px'}
           h={'calc(100vh - 235px)'}
-          ml={'50px'}
         >
-          <Box pos={'absolute'} bottom={'17%'}>
+          <Box pos={'absolute'} bottom={{ base: '0', lg: '-12%' }}>
             <Image alt="" src={'/ornament-firstview-web.svg'} />
           </Box>
           <Box mb={'52px'}>
@@ -153,8 +158,9 @@ export const Firstview = () => {
               <ListItem>web開発における思い</ListItem>
             </UnorderedList>
           </Box>
-        </Box>
+        </Container>
         <Box
+          sx={{ transform: 'translateY(-10%)' }}
           pos={'absolute'}
           zIndex={'10'}
           top={0}
