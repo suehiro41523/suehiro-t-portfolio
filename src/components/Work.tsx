@@ -19,7 +19,7 @@ export const Work = () => {
   const dtpData = contentData('dtp', undefined);
 
   return (
-    <Box pos={'relative'} mb={'280px'} id="work">
+    <Box pos={'relative'} mb={'180px'} id="work">
       <Container maxW={'1200px'}>
         <Image
           sx={{ transform: 'translateY(-30%)' }}
@@ -103,7 +103,7 @@ export const Work = () => {
                 maxW={'522px'}
               >
                 {dtpData.contents.map((article: Dtp) => (
-                  <ListItem key={article.id} suppressHydrationWarning>
+                  <ListItem key={article.id}>
                     <Button href={`/works/dtp/${article.id}`}>
                       {article.title}
                     </Button>

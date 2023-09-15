@@ -23,7 +23,7 @@ export default function Page({ params }: { params: { slug: string } }) {
     <ChakraProvider theme={theme}>
       <Box minH={'100vh'} bg={'gray.700'}>
         <HeaderForDynamic />
-        <Container maxW={'1200px'} mx={'auto'} mb={'170px'} color={'gray.200'}>
+        <Container maxW={'1200px'} mx={'auto'} mb={'180px'} color={'gray.200'}>
           <Heading as={'h2'} mb={'60px'} fontSize={'lg'}>
             <Box color={'gray.600'} fontSize={'sm'} fontWeight={'bold'}>
               Work{workNumber}
