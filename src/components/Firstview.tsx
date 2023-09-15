@@ -116,7 +116,7 @@ export const Firstview = () => {
     // 画面サイズが変わるごとにアニメーションを再発火し、レスポンシブ対応
   }, [width]);
   return (
-    <Box>
+    <Box pos={'relative'}>
       <HeaderForTop />
       <Box
         pos={'relative'}
@@ -168,9 +168,9 @@ export const Firstview = () => {
         >
           <canvas style={{ maxWidth: '100%' }} id="top" />
         </Box>
-        <Box pos="absolute" bottom={0} left={'50%'} translateX="-50%">
-          <Image alt="" src={'/arrowDown.svg'} />
-        </Box>
+      </Box>
+      <Box pos="absolute" bottom={0} left={'50%'} translateX="-50%">
+        <Image alt="" src={'/arrowDown.svg'} />
       </Box>
     </Box>
   );
