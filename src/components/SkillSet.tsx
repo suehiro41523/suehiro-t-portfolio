@@ -31,10 +31,9 @@ export const SkillSet = () => {
             <SkillListItem skillName="Next.js" />
           </SkillList>
           <SkillList category="デザインツール">
-            <SkillListItem skillName="HTML" />
-            <SkillListItem skillName="CSS" />
-            <SkillListItem skillName="JavaScript" />
-            <SkillListItem skillName="TypeScript" />
+            <SkillListItem skillName="Figma" />
+            <SkillListItem skillName="Blender" />
+            <SkillListItem skillName="Illustrator" />
           </SkillList>
           <SkillList category="CI/CD">
             <SkillListItem skillName="Git&Github" />
