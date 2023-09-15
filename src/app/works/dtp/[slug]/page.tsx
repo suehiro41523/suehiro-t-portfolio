@@ -9,6 +9,8 @@ import {
   Link,
   Image,
 } from '@chakra-ui/react';
+import Zoom from 'react-medium-image-zoom';
+import 'react-medium-image-zoom/dist/styles.css';
 
 import { HeaderForDynamic } from '../../../../components/HeaderForDynamic';
 import { Footer } from '../../../../components/Footer';
@@ -51,11 +53,11 @@ export default function Page({ params }: { params: { slug: string } }) {
               />
               <Box pos={'relative'} h={'fit-content'}>
                 {data.eyecatch !== undefined ? (
-                  <>
-                    <Box w={'fit-content'} maxW={'540px'}>
+                  <Box w={'fit-content'} maxW={'540px'}>
+                    <Zoom>
                       <Image alt={''} src={data.eyecatch.url}></Image>
-                    </Box>
-                  </>
+                    </Zoom>
+                  </Box>
                 ) : (
                   <Box>サイト画像がまだ登録されていません </Box>
                 )}
