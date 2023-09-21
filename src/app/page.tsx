@@ -8,6 +8,7 @@ import { Experience } from '../components/Experience';
 import { Work } from '../components/Work';
 import { MyThought } from '../components/MyThought';
 import { Footer } from '../components/Footer';
+import { Information } from '../components/Information';
 
 export default function Home() {
   const theme = extendTheme({});
@@ -15,7 +16,12 @@ export default function Home() {
   return (
     <main>
       <ChakraProvider theme={theme}>
-        <Box overflowX={'hidden'} minH={'100vh'} bgColor={'gray.700'}>
+        <Box
+          pos={'relative'}
+          overflowX={'hidden'}
+          minH={'100vh'}
+          bgColor={'gray.700'}
+        >
           <Firstview />
           <Profile />
           <SkillSet />
@@ -23,6 +29,9 @@ export default function Home() {
           <Work />
           <MyThought />
           <Footer />
+          <Box pos={'fixed'} zIndex={'20'} right={'24px'} bottom={'24px'}>
+            <Information />
+          </Box>
         </Box>
       </ChakraProvider>
     </main>
