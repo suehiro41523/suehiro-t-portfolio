@@ -11,7 +11,19 @@ import { Footer } from '../components/Footer';
 import { Information } from '../components/Information';
 
 export default function Home() {
-  const theme = extendTheme({});
+  const theme = extendTheme({
+    styles: {
+      global: {
+        'html, body': {
+          bg: 'gray.700',
+          lineHeight: 'tall',
+        },
+        a: {
+          color: 'teal.500',
+        },
+      },
+    },
+  });
 
   return (
     <main>

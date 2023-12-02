@@ -137,7 +137,7 @@ export const Firstview = () => {
           maxW={'1200px'}
           h={'calc(100vh - 235px)'}
         >
-          <Box pos={'absolute'} bottom={{ base: '0', lg: '-12%' }}>
+          <Box pos={'absolute'} zIndex={1} bottom={{ base: '0', lg: '-12%' }}>
             <Image alt="" src={'/ornament-firstview-web.svg'} />
           </Box>
           <Box mb={'52px'}>
@@ -169,7 +169,7 @@ export const Firstview = () => {
           <canvas style={{ maxWidth: '100%' }} id="top" />
         </Box>
       </Box>
-      <Box pos="absolute" bottom={0} left={'50%'} translateX="-50%">
+      <Box pos="absolute" zIndex={10} bottom={0} left={'50%'} translateX="-50%">
         <Image alt="" src={'/arrowDown.svg'} />
       </Box>
     </Box>

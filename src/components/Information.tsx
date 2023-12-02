@@ -22,7 +22,7 @@ export const Information = () => {
       </Button>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent bg={'gray.300'}>
+        <ModalContent bg={'gray.200'}>
           <ModalHeader>本サイトの今後について</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
