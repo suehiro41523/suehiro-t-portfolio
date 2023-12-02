@@ -1,4 +1,4 @@
-import { Box, Container, Image } from '@chakra-ui/react';
+import { Box, Container, Image, Link } from '@chakra-ui/react';
 import { ReactNode } from 'react';
 
 type Props = {
@@ -20,7 +20,9 @@ export const Header = ({ children }: Props) => {
         display={'flex'}
         maxW={{ xl: '1200px' }}
       >
-        <Box>Suehiro&apos;s portfolio</Box>
+        <Link href="/">
+          <Box>Suehiro&apos;s portfolio</Box>
+        </Link>
         {children}
       </Container>
       <Box
