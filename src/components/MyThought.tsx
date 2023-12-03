@@ -13,14 +13,6 @@ export const MyThought = () => {
         color={'gray.200'}
       >
         世の中に数多くの職種がある中で、web制作は私にとって長期にわたって携わりたいと思える職業です。
-        <UnorderedList flexDir={'column'} gap={'16px'} display={'flex'}>
-          <ListItem>移り変わりが激しく飽きのない学習</ListItem>
-          <ListItem>
-            コンピュータという決まった反応をするものと対峙する時間が長いこと
-          </ListItem>
-          <ListItem>自分の学習次第で成果物の質が決まること</ListItem>
-        </UnorderedList>
-        これらの性質は私の性格に向いていると感じていますし、日々楽しく学習に励むことができています。
       </Box>
     </Container>
   );

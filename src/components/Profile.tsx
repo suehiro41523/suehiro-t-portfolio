@@ -4,14 +4,36 @@ import { Heading2 } from './HeadingTwo';
 import { TimelineList } from './TimlineList';
 
 export const Profile = () => {
+  if (process.browser) {
+    const elements = document.querySelectorAll('.fade-in');
+
+    const handleIntersection = (entries: any, observer: any) => {
+      entries.forEach((entry: any) => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          observer.unobserve(entry.target);
+        }
+      });
+    };
+    const observer = new IntersectionObserver(handleIntersection, {
+      threshold: 0.5, // 50%以上が表示されたらコールバックを実行
+    });
+
+    elements.forEach((element) => {
+      observer.observe(element);
+    });
+  }
+
   return (
     <Container maxW={'1200px'} mb={'286px'} color={'gray.200'} id="profile">
       <Heading2 subheading="profile" heading="基本情報" />
       <Box
+        className="fade-in"
         flexDir={{ base: 'column', lg: 'row' }}
         gap={'90px'}
         display={'flex'}
         mb={'380px'}
+        opacity={0}
       >
         <Box>
           <Box ml={'24px'}>
