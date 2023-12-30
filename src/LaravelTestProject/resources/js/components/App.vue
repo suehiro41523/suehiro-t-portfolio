@@ -1,15 +1,7 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">App Component</div>
-
-                    <div class="card-body">I'm an example component.</div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <section class="container mx-auto">
+        <h2 class="text-gray-200 text-2xl font-bold">Hello World</h2>
+    </section>
 </template>
 
 <script>

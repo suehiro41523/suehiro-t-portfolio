@@ -7,6 +7,7 @@
 import "./bootstrap";
 import { createApp } from "vue";
 import App from "./components/App.vue";
+import "../css/index.css";
 
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
