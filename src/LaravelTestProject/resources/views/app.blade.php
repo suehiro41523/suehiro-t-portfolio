@@ -19,7 +19,7 @@
 
 </head>
 
-<body class="bg-slate-800">
+<body class="bg-gray-800">
   <div id="app">
   </div>
 </body>
