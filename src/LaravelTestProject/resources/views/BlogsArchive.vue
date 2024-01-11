@@ -1,7 +1,10 @@
-<script setup></script>
+<script setup>
+import Header from "../js/components/Header.vue";
+import Footer from "../js/components/Footer.vue";
+</script>
 
 <template>
-    <router-view>
-        <main class="min-h-full"></main>
-    </router-view>
+    <Header></Header>
+    <main></main>
+    <Footer></Footer>
 </template>

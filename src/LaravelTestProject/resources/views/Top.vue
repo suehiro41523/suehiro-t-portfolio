@@ -1,4 +1,6 @@
 <script setup>
+import Header from "../js/components/Header.vue";
+import Footer from "../js/components/Footer.vue";
 import TopWorks from "../js/components/TopWorks.vue";
 import Heading2 from "../js/components/Heading2.vue";
 import Heading3 from "../js/components/Heading3.vue";
@@ -8,6 +10,7 @@ import CtaButton from "../js/components/CtaButton.vue";
 </script>
 
 <template>
+    <Header></Header>
     <section class="container min-h-screen mx-auto relative">
         <div
             class="w-fit absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
@@ -229,4 +232,5 @@ import CtaButton from "../js/components/CtaButton.vue";
             </div>
         </div>
     </section>
+    <Footer></Footer>
 </template>
