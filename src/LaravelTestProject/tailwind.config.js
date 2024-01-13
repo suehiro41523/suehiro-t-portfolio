@@ -1,7 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    purge: ["./index.html", "./resources/**/*.{vue,js,ts,jsx,tsx,blade.php}"],
-    content: [],
+    content: ["./index.html", "./resources/**/*.{vue,js,ts,jsx,tsx,blade.php}"],
     darkMode: "class",
     theme: {
         colors: {
