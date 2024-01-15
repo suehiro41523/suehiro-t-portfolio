@@ -24,5 +24,5 @@ WORKDIR /var/www
 RUN composer global require "laravel/installer"
 
 # change permission in var/www/html/storage
-RUN chmod -R 775 /var/www/html/storage && \
-    chown -R www-data:www-data /var/www/html/storage
+RUN chmod -R 775 /storage && \
+    chown -R www-data:www-data /storage
