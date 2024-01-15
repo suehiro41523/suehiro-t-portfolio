@@ -26,7 +26,8 @@ services:
     # ボリュームを設定する（ホスト側ディレクトリ:コンテナ側ボリュームの場所）
     volumes:
       - ./src:/var/www
-
+    ports:
+      - 5173:5173 # vite開通用port
   nginx:
     image: nginx:latest
     container_name: 'nginx_for_portfolio'
