@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+const colors = require("tailwindcss/colors");
+
 module.exports = {
     content: ["./index.html", "./resources/**/*.{vue,js,ts,jsx,tsx,blade.php}"],
     darkMode: "class",
@@ -50,6 +53,7 @@ module.exports = {
             yellow: {
                 200: "#FAF089",
             },
+            red: colors.red,
         },
         extend: {},
     },
