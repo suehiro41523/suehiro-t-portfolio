@@ -17,6 +17,8 @@ class WorkResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
+            'content' => $this->content,
+            'imgurl' => $this->imgurl,
             'slug' => $this->slug,
         ];
     }

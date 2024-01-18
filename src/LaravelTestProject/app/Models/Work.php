@@ -9,5 +9,5 @@ class Work extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'slug'];
+    protected $fillable = ['title', 'content', 'imgurl', 'slug'];
 }

@@ -25,7 +25,9 @@ class StoreWorkRequest extends FormRequest
     {
         return [
             'title' => ['required'],
-            'slug' => ['required', 'unique:works,slug']
+            'content' => ['required'],
+            'imgurl' => ['required'],
+            'slug' => ['required']
         ];
     }
 }

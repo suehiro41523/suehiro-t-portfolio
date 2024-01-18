@@ -32,4 +32,9 @@ class WorkController extends Controller
         $work->update($request->validated());
         return (response()->json("work updated"));
     }
+    public function destroy(Work $work)
+    {
+        $work->delete();
+        return response('work deleted');
+    }
 }
