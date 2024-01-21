@@ -27,7 +27,6 @@ class StoreWorkRequest extends FormRequest
             'title' => ['required'],
             'content' => ['required'],
             'imgurl' => ['required'],
-            'slug' => ['required']
         ];
     }
 }

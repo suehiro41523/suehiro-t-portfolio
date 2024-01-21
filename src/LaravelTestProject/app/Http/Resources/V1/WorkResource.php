@@ -19,7 +19,6 @@ class WorkResource extends JsonResource
             'title' => $this->title,
             'content' => $this->content,
             'imgurl' => $this->imgurl,
-            'slug' => $this->slug,
         ];
     }
 }

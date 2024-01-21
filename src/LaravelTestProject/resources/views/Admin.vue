@@ -1,11 +1,22 @@
 <script setup>
 import Header from "../js/components/Header.vue";
 import Footer from "../js/components/Footer.vue";
+import EditContent from "../js/components/EditContent.vue";
+import CreateContent from "../js/components/CreateContent.vue";
+import useWorks from "../js/composabe/works.js";
 
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
+
+const { errors, getWork, work, getWorks, works } = useWorks();
+onMounted(() => {
+    getWorks();
+});
 
 const loggedIn = ref(true);
-const openContent = ref(false);
+const openEdit = ref(false);
+const editingId = ref(null);
+
+const openCreate = ref(false);
 
 const testId = {
     id: "suehiro",
@@ -18,7 +29,6 @@ const clickLogin = (e) => {
     if (testId.id == id.value) {
         if (testId.password == password.value) {
             loggedIn.value = !loggedIn.value;
-            console.log(loggedIn.value);
         }
     }
     if (testId.id == id.value) {
@@ -32,15 +42,26 @@ const clickLogin = (e) => {
         console.log("pass is wrong");
     }
 };
-const clickAddContent = (e) => {
-    console.log(e + "clicked");
-    openContent.value = !openContent.value;
-    console.log(openContent.value);
+const editContent = (e) => {
+    console.log(openEdit);
+    openEdit.value = true;
+    console.log(openEdit);
+
+    editingId.value = e.id;
+    getWork(e.id);
 };
-const closeContent = () => (openContent.value = false);
-const confirmContent = () => {
+const createContent = (e) => {
+    openCreate.value = !openCreate.value;
+};
+const closeEdit = () => (openEdit.value = false);
+const confirmEdit = () => {
     window.confirm("下記の内容で更新しますか？");
-    closeContent();
+    closeEdit();
+};
+const closeCreate = () => (openCreate.value = false);
+const confirmCreate = () => {
+    window.confirm("下記の内容で更新しますか？");
+    closeCreate();
 };
 </script>
 
@@ -112,73 +133,36 @@ const confirmContent = () => {
             </div>
         </div>
         <div class="pt-32 container mx-auto">
-            <div class="flex justify-between w-[340px]">
-                <h2 class="text-gray-50 font-bold text-xl">Blog</h2>
-                <button
-                    v-on:click.prevent="clickAddContent('blog')"
-                    class="bg-green-400 text-xl text-gray-50 p-2 rounded-lg"
-                >
-                    新規登録
-                </button>
-            </div>
-        </div>
-        <div class="" v-if="openContent">
-            <div
-                class="bg-gray-900/10 backdrop-blur-sm absolute top-0 left-0 w-screen h-screen z-10"
-            ></div>
-            <div
-                class="absolute w-[720px] p-6 rounded-lg bg-gray-600 mx-auto top-8 left-1/2 -translate-x-1/2 z-20"
-            >
-                <h2 class="font-bold text-gray-500 text-xl">新しい投稿</h2>
-                <form @submit.prevent class="mt-6">
-                    <div class="flex justify-between">
-                        <div class="flex flex-col gap-6">
-                            <input
-                                class="bg-gray-700 text-gray-500 placeholder-gray-500 rounded-md px-4 py-2"
-                                placeholder="title"
-                                type="text"
-                            />
-                            <textarea
-                                class="bg-gray-700 text-gray-500 placeholder-gray-500 rounded-md px-4 py-2"
-                                placeholder="作品について記述してください。
-Markdown式で記述できます。"
-                                name=""
-                                id=""
-                                cols="30"
-                                rows="10"
-                            ></textarea>
-                        </div>
-                        <div class="flex flex-col gap-6">
-                            <p class="text-xl font-bold text-gray-500">
-                                eyecatch
-                            </p>
-                            <div
-                                class="relative w-[338px] h-[190px] bg-gray-500"
-                            >
-                                <img
-                                    src="../../public/img/ico-image.svg"
-                                    alt=""
-                                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex gap-4 justify-end">
+            <div class="w-[340px]">
+                <div class="flex justify-between">
+                    <h2 class="text-gray-50 font-bold text-xl">Works</h2>
+                    <button
+                        v-on:click.prevent="createContent('work')"
+                        class="bg-green-400 text-xl text-gray-50 p-2 rounded-lg"
+                    >
+                        新規登録
+                    </button>
+                </div>
+                <ul class="mt-6 flex flex-col gap-6">
+                    <li v-for="work in works">
                         <div
-                            v-on:click="confirmContent"
-                            class="text-gray-50 bg-green-500 p-2 rounded-md flex gap-1"
+                            class="text-lg font-bold text-gray-50 bg-gray-700 px-3 py-2 rounded-md flex justify-between"
+                            v-on:click="editContent(work)"
                         >
-                            <img src="../../public/img/ico-update.svg" alt="" />
-                            更新
+                            {{ work.title }}
+                            <img src="../../public/img/ico-edit.svg" alt="" />
                         </div>
-                        <div
-                            v-on:click="closeContent"
-                            class="text-gray-50 bg-red-500 p-2 rounded-md"
-                        >
-                            更新をやめる
-                        </div>
-                    </div>
-                </form>
+                    </li>
+                </ul>
+                <EditContent
+                    :openEdit="openEdit"
+                    :editingId="editingId"
+                    :closeEdit="closeEdit"
+                ></EditContent>
+                <CreateContent
+                    :openCreate="openCreate"
+                    :closeCreate="closeCreate"
+                ></CreateContent>
             </div>
         </div>
     </section>
