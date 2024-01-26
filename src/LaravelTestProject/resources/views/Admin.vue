@@ -5,17 +5,17 @@ import EditContent from "../js/components/EditContent.vue";
 import CreateContent from "../js/components/CreateContent.vue";
 import useWorks from "../js/composabe/works.js";
 
-import { onMounted, ref } from "vue";
+import { onMounted, ref, watch } from "vue";
 
 const { errors, getWork, work, getWorks, works } = useWorks();
-onMounted(() => {
-    getWorks();
-});
-
 const loggedIn = ref(true);
 const openEdit = ref(false);
 const editingId = ref(null);
-
+onMounted(() => {
+    getWorks();
+});
+// 最新のデータを取得したいが、watchで無限ループが発生し、too many requestを引き起こす。#課題
+watch(openEdit, () => getWorks());
 const openCreate = ref(false);
 
 const testId = {
@@ -43,7 +43,6 @@ const clickLogin = (e) => {
     }
 };
 const editContent = (e) => {
-    console.log(openEdit);
     openEdit.value = true;
     console.log(openEdit);
 

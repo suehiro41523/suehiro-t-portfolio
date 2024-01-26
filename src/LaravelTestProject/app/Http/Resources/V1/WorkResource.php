@@ -18,7 +18,7 @@ class WorkResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'content' => $this->content,
-            'imgurl' => $this->imgurl,
+            'image' => $this->image,
         ];
     }
 }

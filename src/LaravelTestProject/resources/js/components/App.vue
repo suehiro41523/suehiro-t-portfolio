@@ -5,7 +5,6 @@ import useWorks from "../composabe/works.js";
 onMounted(() => {
     useWorks();
 });
-const { getWork, work, getWorks, works } = useWorks();
 </script>
 
 <template>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\api\V1\WorkController;
+use App\Http\Controllers\api\V1\ImageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,4 +24,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request)
 Route::group(['prefix' => 'v1'], function ()
 {
     Route::apiResource('works', WorkController::class);
+    Route::apiResource('images', ImageController::class);
 });

@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted } from "vue";
+import { watch } from "vue";
 import useWorks from "../composabe/works.js";
 
 const props = defineProps({
@@ -7,16 +7,26 @@ const props = defineProps({
     openEdit: Boolean,
     closeEdit: Function,
 });
+const { getWork, work, destroyWork } = useWorks();
+watch(
+    () => props.openEdit,
+    () => {
+        getWork(props.editingId);
+    }
+);
 const confirmContent = () => {
     const check = window.confirm("下記の内容で更新しますか？");
     if (check) {
         props.closeEdit();
     }
 };
-const { getWork, work } = useWorks();
-onMounted(() => {
-    getWork(1);
-});
+const deleteContent = () => {
+    const check = window.confirm("本当に記事を削除しますか？");
+    if (check) {
+        destroyWork(props.editingId);
+        props.closeEdit();
+    }
+};
 </script>
 
 <template>
@@ -52,7 +62,7 @@ Markdown式で記述できます。"
                     <div class="flex flex-col gap-6">
                         <p class="text-xl font-bold text-gray-500">eyecatch</p>
                         <div class="w-[338px]">
-                            <img :src="work.imgurl" alt="" />
+                            <img :src="work.image" alt="" />
                         </div>
                     </div>
                 </div>
@@ -76,7 +86,7 @@ Markdown式で記述できます。"
                         </div>
                     </div>
                     <div
-                        v-on:click=""
+                        v-on:click="deleteContent"
                         class="text-gray-50 bg-red-500 p-2 rounded-md w-fit ml-auto"
                     >
                         投稿を削除

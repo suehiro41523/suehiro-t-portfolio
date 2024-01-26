@@ -20,6 +20,7 @@ export default function useWorks() {
         try {
             await axios.post("works/", data);
             errors.value = {};
+            console.log("work stored");
             return;
         } catch (error) {
             if (error.response.status === 422) {
@@ -33,7 +34,6 @@ export default function useWorks() {
     const updateWork = async (id) => {
         try {
             await axios.put("works/" + id, work.value);
-            // await router.push({ name: "App" });
         } catch (error) {
             if (error.response && error.response.status === 422) {
                 errors.value = error.response.data.errors;
@@ -43,14 +43,9 @@ export default function useWorks() {
         }
     };
     const destroyWork = async (id) => {
-        const getWorkById = (id) => {
-            return works._value.find((work) => work.id == id);
-        };
-
-        if (!window.confirm(getWorkById(id).name + " を本当に削除しますか？")) {
-            return;
-        }
         await axios.delete("works/" + id);
+        await getWorks();
+        await console.log(works);
     };
     return {
         work,

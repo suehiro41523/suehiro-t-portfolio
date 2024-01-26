@@ -1,12 +1,14 @@
 <script setup>
 import { reactive, ref } from "vue";
 import useWorks from "../composabe/works.js";
+import useImages from "../composabe/images.js";
 
-const { error, storeWork } = useWorks();
+const { storeWork, getWorks, works } = useWorks();
+const { storeImage } = useImages();
 const form = reactive({
     title: "",
     content: "",
-    imgurl: "",
+    image: "",
 });
 const eyecatch = ref();
 const src = ref();
@@ -15,22 +17,25 @@ const props = defineProps({
     openCreate: Boolean,
     closeCreate: Function,
 });
+const imageSelected = () => {
+    console.log(eyecatch);
+    const imageFile = eyecatch.value.files[0];
+    // src.value = URL.createObjectURL(imageFile);
+    src.value = imageFile;
+    form.image = imageFile.name;
+};
+const uploadFile = () => {
+    console.log(form);
+    console.log(eyecatch.value.files[0]);
+    console.log(src);
+};
 const confirmContent = () => {
     console.log(form);
     const check = window.confirm("下記の内容で投稿しますか？");
     if (check) {
         storeWork(form);
-        props.closeCreate();
+        storeImage(src).then(uploadFile()).then(props.closeCreate());
     }
-};
-
-const uploadFile = () => {
-    console.log(eyecatch);
-    let url = eyecatch.value.files[0];
-    src.value = URL.createObjectURL(url);
-    form.imgurl = eyecatch.value.files[0].name;
-    console.log(form);
-    console.log(src);
 };
 </script>
 
@@ -44,7 +49,11 @@ const uploadFile = () => {
         >
             <h2 class="font-bold text-gray-500 text-xl">新規登録</h2>
 
-            <form @submit.prevent class="mt-6">
+            <form
+                @submit.prevent="confirmContent"
+                class="mt-6"
+                enctype="multipart/form-data"
+            >
                 <div class="flex justify-between">
                     <div class="flex flex-col gap-6">
                         <input
@@ -69,7 +78,8 @@ Markdown式で記述できます。"
                         <input
                             ref="eyecatch"
                             type="file"
-                            @change="uploadFile"
+                            accept="image/*"
+                            @change="imageSelected"
                         />
                         <div class="relative w-[338px] h-[190px] bg-gray-500">
                             <div v-if="eyecatch == null">
@@ -86,13 +96,14 @@ Markdown式で記述できます。"
                     </div>
                 </div>
                 <div class="flex gap-4 justify-end mt-6">
-                    <div
-                        v-on:click="confirmContent"
+                    <input
+                        type="submit"
+                        @click="confirmContent"
                         class="text-gray-50 bg-green-500 p-2 rounded-md flex gap-1"
-                    >
-                        <img src="../../../public/img/ico-update.svg" alt="" />
-                        登録
-                    </div>
+                    />
+                    <!-- <img src="../../../public/img/ico-update.svg" alt="" />
+                        登録 -->
+
                     <div
                         v-on:click="props.closeCreate"
                         class="text-gray-50 bg-red-500 p-2 rounded-md gap-4"
