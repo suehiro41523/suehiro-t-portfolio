@@ -31,9 +31,9 @@ export default function useWorks() {
             }
         }
     };
-    const updateWork = async (id) => {
+    const updateWork = async (id, data) => {
         try {
-            await axios.put("works/" + id, work.value);
+            await axios.put("works/" + id, data);
         } catch (error) {
             if (error.response && error.response.status === 422) {
                 errors.value = error.response.data.errors;

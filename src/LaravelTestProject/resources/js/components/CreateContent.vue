@@ -1,5 +1,5 @@
 <script setup>
-import { reactive, ref } from "vue";
+import { reactive, ref, watch, watchEffect } from "vue";
 import useWorks from "../composabe/works.js";
 import useImages from "../composabe/images.js";
 
@@ -12,15 +12,17 @@ const form = reactive({
 });
 const eyecatch = ref();
 const src = ref();
+const blobImage = ref();
 
 const props = defineProps({
     openCreate: Boolean,
     closeCreate: Function,
 });
+
 const imageSelected = () => {
     console.log(eyecatch);
     const imageFile = eyecatch.value.files[0];
-    // src.value = URL.createObjectURL(imageFile);
+    blobImage.value = URL.createObjectURL(imageFile);
     src.value = imageFile;
     form.image = imageFile.name;
 };
@@ -29,12 +31,14 @@ const uploadFile = () => {
     console.log(eyecatch.value.files[0]);
     console.log(src);
 };
-const confirmContent = () => {
+const confirmContent = async () => {
     console.log(form);
     const check = window.confirm("下記の内容で投稿しますか？");
     if (check) {
-        storeWork(form);
-        storeImage(src).then(uploadFile()).then(props.closeCreate());
+        await storeWork(form);
+        await storeImage(src);
+        await uploadFile();
+        props.closeCreate();
     }
 };
 </script>
@@ -49,21 +53,17 @@ const confirmContent = () => {
         >
             <h2 class="font-bold text-gray-500 text-xl">新規登録</h2>
 
-            <form
-                @submit.prevent="confirmContent"
-                class="mt-6"
-                enctype="multipart/form-data"
-            >
+            <form @submit.prevent class="mt-6" enctype="multipart/form-data">
                 <div class="flex justify-between">
                     <div class="flex flex-col gap-6">
                         <input
-                            class="bg-gray-700 text-gray-500 placeholder-gray-500 rounded-md px-4 py-2"
+                            class="bg-gray-700 text-gray-300 placeholder-gray-500 rounded-md px-4 py-2"
                             placeholder="title"
                             v-model="form.title"
                             type="text"
                         />
                         <textarea
-                            class="bg-gray-700 text-gray-500 placeholder-gray-500 rounded-md px-4 py-2"
+                            class="bg-gray-700 text-gray-300 placeholder-gray-500 rounded-md px-4 py-2"
                             placeholder="作品について記述してください。
 Markdown式で記述できます。"
                             v-model="form.content"
@@ -74,14 +74,15 @@ Markdown式で記述できます。"
                         ></textarea>
                     </div>
                     <div class="flex flex-col gap-6">
-                        <p class="text-xl font-bold text-gray-500">eyecatch</p>
                         <input
                             ref="eyecatch"
                             type="file"
                             accept="image/*"
                             @change="imageSelected"
                         />
-                        <div class="relative w-[338px] h-[190px] bg-gray-500">
+                        <div
+                            class="relative w-[338px] h-[190px] bg-gray-500 overflow-scroll"
+                        >
                             <div v-if="eyecatch == null">
                                 <img
                                     src="../../../public/img/ico-image.svg"
@@ -90,19 +91,20 @@ Markdown式で記述できます。"
                                 />
                             </div>
                             <div v-if="eyecatch != null">
-                                <img :src="src" alt="" />
+                                <img :src="blobImage" alt="" />
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="flex gap-4 justify-end mt-6">
-                    <input
+                    <button
                         type="submit"
                         @click="confirmContent"
                         class="text-gray-50 bg-green-500 p-2 rounded-md flex gap-1"
-                    />
-                    <!-- <img src="../../../public/img/ico-update.svg" alt="" />
-                        登録 -->
+                    >
+                        <img src="../../../public/img/ico-update.svg" alt="" />
+                        登録
+                    </button>
 
                     <div
                         v-on:click="props.closeCreate"

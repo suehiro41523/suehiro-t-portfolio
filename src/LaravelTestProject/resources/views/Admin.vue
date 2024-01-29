@@ -5,7 +5,7 @@ import EditContent from "../js/components/EditContent.vue";
 import CreateContent from "../js/components/CreateContent.vue";
 import useWorks from "../js/composabe/works.js";
 
-import { onMounted, ref, watch } from "vue";
+import { onMounted, ref, watch, Suspense } from "vue";
 
 const { errors, getWork, work, getWorks, works } = useWorks();
 const loggedIn = ref(true);
@@ -52,15 +52,16 @@ const editContent = (e) => {
 const createContent = (e) => {
     openCreate.value = !openCreate.value;
 };
-const closeEdit = () => (openEdit.value = false);
-const confirmEdit = () => {
-    window.confirm("下記の内容で更新しますか？");
-    closeEdit();
+const closeEdit = () => {
+    openEdit.value = false;
+    getWorks();
+    console.log("closeEdit has been ran");
 };
-const closeCreate = () => (openCreate.value = false);
-const confirmCreate = () => {
-    window.confirm("下記の内容で更新しますか？");
-    closeCreate();
+
+const closeCreate = () => {
+    openCreate.value = false;
+    getWorks();
+    console.log("closeCreate has been ran");
 };
 </script>
 
@@ -134,7 +135,7 @@ const confirmCreate = () => {
         <div class="pt-32 container mx-auto">
             <div class="w-[340px]">
                 <div class="flex justify-between">
-                    <h2 class="text-gray-50 font-bold text-xl">Works</h2>
+                    <h2 class="text-gray-50 font-bold text-xl">Website</h2>
                     <button
                         v-on:click.prevent="createContent('work')"
                         class="bg-green-400 text-xl text-gray-50 p-2 rounded-lg"
