@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\api\V1\WorkController;
 use App\Http\Controllers\api\V1\ImageController;
+use App\Http\Controllers\api\V1\DtpController;
+use App\Http\Controllers\api\V1\BlogController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,4 +27,6 @@ Route::group(['prefix' => 'v1'], function ()
 {
     Route::apiResource('works', WorkController::class);
     Route::apiResource('images', ImageController::class);
+    Route::apiResource('dtps', DtpController::class);
+    Route::apiResource('blogs', BlogController::class);
 });

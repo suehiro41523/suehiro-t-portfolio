@@ -1,9 +1,13 @@
 <script setup>
 import { reactive, ref, watch, watchEffect } from "vue";
 import useWorks from "../composabe/works.js";
+import useDtps from "../composabe/dtps.js";
+import useBlogs from "../composabe/blogs.js";
 import useImages from "../composabe/images.js";
 
-const { storeWork, getWorks, works } = useWorks();
+const { storeWork } = useWorks();
+const { storeDtp } = useDtps();
+const { storeBlog } = useBlogs();
 const { storeImage } = useImages();
 const form = reactive({
     title: "",
@@ -17,6 +21,7 @@ const blobImage = ref();
 const props = defineProps({
     openCreate: Boolean,
     closeCreate: Function,
+    openingCategory: String,
 });
 
 const imageSelected = () => {
@@ -26,18 +31,38 @@ const imageSelected = () => {
     src.value = imageFile;
     form.image = imageFile.name;
 };
-const uploadFile = () => {
-    console.log(form);
-    console.log(eyecatch.value.files[0]);
-    console.log(src);
-};
+
 const confirmContent = async () => {
     console.log(form);
     const check = window.confirm("下記の内容で投稿しますか？");
     if (check) {
-        await storeWork(form);
-        await storeImage(src);
-        await uploadFile();
+        switch (props.openingCategory) {
+            case "work":
+                console.log("this is categorized to work");
+                await storeWork(form);
+                await storeImage(src);
+                break;
+            case "dtp":
+                console.log("this is categorized to dtp");
+                await storeDtp(form);
+                await storeImage(src);
+                break;
+            case "blog":
+                console.log("this is categorized to blog");
+                const blogForm = {
+                    title: form.title,
+                    content: form.content,
+                };
+                console.log(blogForm);
+                await storeBlog(blogForm);
+                break;
+            default:
+                console.log("nothing happend");
+                break;
+        }
+        form.title = "";
+        form.content = "";
+        form.image = "";
         props.closeCreate();
     }
 };
@@ -73,7 +98,11 @@ Markdown式で記述できます。"
                             rows="10"
                         ></textarea>
                     </div>
-                    <div class="flex flex-col gap-6">
+
+                    <div
+                        v-if="props.openingCategory != 'blog'"
+                        class="flex flex-col gap-6"
+                    >
                         <input
                             ref="eyecatch"
                             type="file"

@@ -4,20 +4,27 @@ import Footer from "../js/components/Footer.vue";
 import EditContent from "../js/components/EditContent.vue";
 import CreateContent from "../js/components/CreateContent.vue";
 import useWorks from "../js/composabe/works.js";
+import useDtps from "../js/composabe/dtps.js";
+import useBlogs from "../js/composabe/blogs.js";
 
-import { onMounted, ref, watch, Suspense } from "vue";
+import { onMounted, ref, watch } from "vue";
 
-const { errors, getWork, work, getWorks, works } = useWorks();
+const { getWork, work, getWorks, works } = useWorks();
+const { getDtp, dtp, getDtps, dtps } = useDtps();
+const { getBlog, blog, getBlogs, blogs } = useBlogs();
 const loggedIn = ref(true);
 const openEdit = ref(false);
-const editingId = ref(null);
+const editingId = ref(1);
+const openingCategory = ref("");
 onMounted(() => {
+    getDtps();
     getWorks();
+    getBlogs();
 });
-// 最新のデータを取得したいが、watchで無限ループが発生し、too many requestを引き起こす。#課題
 watch(openEdit, () => getWorks());
+watch(openEdit, () => getDtps());
+watch(openEdit, () => getBlogs());
 const openCreate = ref(false);
-
 const testId = {
     id: "suehiro",
     password: "pass",
@@ -42,19 +49,31 @@ const clickLogin = (e) => {
         console.log("pass is wrong");
     }
 };
-const editContent = (e) => {
+const editContent = (e, cat) => {
     openEdit.value = true;
     console.log(openEdit);
-
+    openingCategory.value = cat;
     editingId.value = e.id;
-    getWork(e.id);
+    switch (cat) {
+        case "work":
+            getWork(e.id);
+            break;
+        case "dtp":
+            getDtp(e.id);
+            break;
+        case "blog":
+            getBlog(e.id);
+            break;
+        default:
+            break;
+    }
 };
-const createContent = (e) => {
+const createContent = async (cat) => {
+    await (openingCategory.value = cat);
     openCreate.value = !openCreate.value;
 };
 const closeEdit = () => {
     openEdit.value = false;
-    getWorks();
     console.log("closeEdit has been ran");
 };
 
@@ -134,35 +153,123 @@ const closeCreate = () => {
         </div>
         <div class="pt-32 container mx-auto">
             <div class="w-[340px]">
-                <div class="flex justify-between">
-                    <h2 class="text-gray-50 font-bold text-xl">Website</h2>
-                    <button
-                        v-on:click.prevent="createContent('work')"
-                        class="bg-green-400 text-xl text-gray-50 p-2 rounded-lg"
-                    >
-                        新規登録
-                    </button>
-                </div>
-                <ul class="mt-6 flex flex-col gap-6">
-                    <li v-for="work in works">
-                        <div
-                            class="text-lg font-bold text-gray-50 bg-gray-700 px-3 py-2 rounded-md flex justify-between"
-                            v-on:click="editContent(work)"
-                        >
-                            {{ work.title }}
-                            <img src="../../public/img/ico-edit.svg" alt="" />
+                <div class="flex flex-col gap-12">
+                    <div>
+                        <div class="flex justify-between">
+                            <h2 class="text-gray-50 font-bold text-xl">
+                                Website
+                            </h2>
+                            <button
+                                v-on:click.prevent="createContent('work')"
+                                class="bg-green-400 text-xl text-gray-50 p-2 rounded-lg"
+                            >
+                                新規登録
+                            </button>
                         </div>
-                    </li>
-                </ul>
+                        <div
+                            class="text-lg text-gray-50"
+                            v-if="works.length == 0"
+                        >
+                            Websiteにはコンテンツがありません
+                        </div>
+                        <ul
+                            v-if="works.length !== 0"
+                            class="mt-6 flex flex-col gap-6"
+                        >
+                            <li v-for="work in works">
+                                <div
+                                    class="text-lg font-bold text-gray-50 bg-gray-700 px-3 py-2 rounded-md flex justify-between"
+                                    v-on:click="editContent(work, 'work')"
+                                >
+                                    {{ work.title }}
+                                    <img
+                                        src="../../public/img/ico-edit.svg"
+                                        alt=""
+                                    />
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="flex justify-between">
+                            <h2 class="text-gray-50 font-bold text-xl">DTP</h2>
+                            <button
+                                v-on:click.prevent="createContent('dtp')"
+                                class="bg-green-400 text-xl text-gray-50 p-2 rounded-lg"
+                            >
+                                新規登録
+                            </button>
+                        </div>
+                        <div
+                            class="text-lg text-gray-50"
+                            v-if="dtps.length == 0"
+                        >
+                            DTPにはコンテンツがありません
+                        </div>
+                        <ul
+                            v-if="dtps.length !== 0"
+                            class="mt-6 flex flex-col gap-6"
+                        >
+                            <li v-for="dtp in dtps">
+                                <div
+                                    class="text-lg font-bold text-gray-50 bg-gray-700 px-3 py-2 rounded-md flex justify-between"
+                                    v-on:click="editContent(dtp, 'dtp')"
+                                >
+                                    {{ dtp.title }}
+                                    <img
+                                        src="../../public/img/ico-edit.svg"
+                                        alt=""
+                                    />
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="flex justify-between">
+                            <h2 class="text-gray-50 font-bold text-xl">Blog</h2>
+                            <button
+                                v-on:click.prevent="createContent('blog')"
+                                class="bg-green-400 text-xl text-gray-50 p-2 rounded-lg"
+                            >
+                                新規登録
+                            </button>
+                        </div>
+                        <div
+                            class="text-lg text-gray-50"
+                            v-if="blogs.length == 0"
+                        >
+                            blogにはコンテンツがありません
+                        </div>
+                        <ul
+                            v-if="blogs.length !== 0"
+                            class="mt-6 flex flex-col gap-6"
+                        >
+                            <li v-for="blog in blogs">
+                                <div
+                                    class="text-lg font-bold text-gray-50 bg-gray-700 px-3 py-2 rounded-md flex justify-between"
+                                    v-on:click="editContent(blog, 'blog')"
+                                >
+                                    {{ blog.title }}
+                                    <img
+                                        src="../../public/img/ico-edit.svg"
+                                        alt=""
+                                    />
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <CreateContent
+                    :openCreate="openCreate"
+                    :closeCreate="closeCreate"
+                    :openingCategory="openingCategory"
+                ></CreateContent>
                 <EditContent
                     :openEdit="openEdit"
                     :editingId="editingId"
                     :closeEdit="closeEdit"
+                    :openingCategory="openingCategory"
                 ></EditContent>
-                <CreateContent
-                    :openCreate="openCreate"
-                    :closeCreate="closeCreate"
-                ></CreateContent>
             </div>
         </div>
     </section>
