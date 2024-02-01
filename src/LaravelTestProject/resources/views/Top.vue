@@ -7,6 +7,18 @@ import Heading3 from "../js/components/Heading3.vue";
 import StatusItem from "../js/components/StatusItem.vue";
 import TimelineItems from "../js/components/TimelineItems.vue";
 import CtaButton from "../js/components/CtaButton.vue";
+
+import useWorks from "../js/composabe/works";
+import useDtps from "../js/composabe/dtps";
+import useBlogs from "../js/composabe/blogs";
+import { onMounted } from "vue";
+
+const { getWorks, works } = useWorks();
+const { getDtps, dtps } = useDtps();
+const { getBlogs, blogs } = useBlogs();
+onMounted(() => getWorks());
+onMounted(() => getDtps());
+onMounted(() => getBlogs());
 </script>
 
 <template>
@@ -177,7 +189,10 @@ import CtaButton from "../js/components/CtaButton.vue";
                 <div
                     class="relative before:absolute before:block before:w-[725px] before:h-[24px] before:bg-purple-300 before:top-1/3 before:[filter:blur(65px)]"
                 >
-                    <div class="relative grid grid-cols-3 gap-y-4 mb-6">
+                    <div
+                        v-if="works.length == 0"
+                        class="relative grid grid-cols-3 gap-y-4 mb-6"
+                    >
                         <div
                             class="[&:nth-child(3n)]:ml-auto [&:nth-child(3n-1)]:mx-auto"
                             v-for="i in 6"
@@ -188,6 +203,22 @@ import CtaButton from "../js/components/CtaButton.vue";
                             ></div>
                         </div>
                     </div>
+                    <div class="relative grid grid-cols-3 gap-y-4 mb-6">
+                        <div
+                            class="[&:nth-child(3n)]:ml-auto [&:nth-child(3n-1)]:mx-auto"
+                            v-for="(work, i) in works"
+                        >
+                            <img
+                                v-if="i <= 5"
+                                class="w-[288px] h-[168px] rounded-md object-cover object-top"
+                                :src="
+                                    'https://suehiro-portfolio.s3.ap-northeast-1.amazonaws.com/images/' +
+                                    work.image
+                                "
+                                alt=""
+                            />
+                        </div>
+                    </div>
                 </div>
             </div>
             <div>
@@ -195,7 +226,10 @@ import CtaButton from "../js/components/CtaButton.vue";
                 <div
                     class="z-10 relative before:absolute before:block before:w-[75px] before:h-[75px] before:bg-green-300 before:top-1/3 before:[filter:blur(65px)] before:left-2/3"
                 >
-                    <div class="relative grid grid-cols-3 gap-y-4 mb-6">
+                    <div
+                        v-if="dtps.length == 0"
+                        class="relative grid grid-cols-3 gap-y-4 mb-6"
+                    >
                         <div
                             class="[&:nth-child(3n)]:ml-auto [&:nth-child(3n-1)]:mx-auto"
                             v-for="i in 6"
@@ -204,6 +238,22 @@ import CtaButton from "../js/components/CtaButton.vue";
                             <div
                                 class="w-[288px] h-[168px] bg-gray-300 rounded-md"
                             ></div>
+                        </div>
+                    </div>
+                    <div class="relative grid grid-cols-3 gap-y-4 mb-6">
+                        <div
+                            class="[&:nth-child(3n)]:ml-auto [&:nth-child(3n-1)]:mx-auto"
+                            v-for="(dtp, i) in dtps"
+                        >
+                            <img
+                                v-if="i <= 5"
+                                class="w-[288px] h-[168px] rounded-md object-cover object-top"
+                                :src="
+                                    'https://suehiro-portfolio.s3.ap-northeast-1.amazonaws.com/images/' +
+                                    dtp.image
+                                "
+                                alt=""
+                            />
                         </div>
                     </div>
                 </div>
@@ -215,13 +265,36 @@ import CtaButton from "../js/components/CtaButton.vue";
         <div>
             <div class="grid grid-cols-3 gap-y-4 mb-6">
                 <div
-                    class="[&:nth-child(3n)]:ml-auto [&:nth-child(3n-1)]:mx-auto"
-                    v-for="i in 6"
-                    :key="i"
+                    v-if="blogs.length == 0"
+                    class="relative grid grid-cols-3 gap-y-4 mb-6"
                 >
                     <div
-                        class="w-[288px] h-[168px] bg-gray-300 rounded-md"
-                    ></div>
+                        class="[&:nth-child(3n)]:ml-auto [&:nth-child(3n-1)]:mx-auto"
+                        v-for="i in 6"
+                        :key="i"
+                    >
+                        <div
+                            class="w-[288px] h-[168px] bg-gray-300 rounded-md"
+                        ></div>
+                    </div>
+                </div>
+                <div class="relative grid grid-cols-3 gap-y-4 mb-6">
+                    <div
+                        class="[&:nth-child(3n)]:ml-auto [&:nth-child(3n-1)]:mx-auto"
+                        v-for="(blog, i) in blogs"
+                    >
+                        <div
+                            v-if="i <= 5"
+                            class="w-[288px] h-[120px] rounded-md object-cover object-top text-gray-50 bg-gray-700 flex flex-col gap-3 px-4 py-2"
+                        >
+                            <h3 class="text-xl font-bold">
+                                {{ blog.title }}
+                            </h3>
+                            <p class="text-sm">
+                                {{ blog.content.substring(0, 54) + "..." }}
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="ml-auto w-fit">
