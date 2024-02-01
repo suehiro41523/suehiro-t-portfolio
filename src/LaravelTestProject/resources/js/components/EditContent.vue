@@ -1,5 +1,5 @@
 <script setup>
-import { watch, ref, reactive, onBeforeUpdate, onUpdated } from "vue";
+import { watch, ref, reactive } from "vue";
 import useWorks from "../composabe/works.js";
 import useDtps from "../composabe/dtps.js";
 import useBlogs from "../composabe/blogs.js";
@@ -24,27 +24,36 @@ const eyecatch = ref("");
 const src = ref("");
 const blobImage = ref("");
 
-onBeforeUpdate(() => {
-    if (props.openEdit) {
-        switch (props.openingCategory) {
-            case "work":
-                getWork(props.editingId);
-                break;
-            case "dtp":
-                getDtp(props.editingId);
-                break;
-            case "blog":
-                getBlog(props.editingId);
-                break;
-            default:
-                break;
+watch(
+    () => props.openEdit,
+    () => {
+        if (props.openEdit == true) {
+            switch (props.openingCategory) {
+                case "work":
+                    console.log("work getting");
+                    getWork(props.editingId);
+                    break;
+                case "dtp":
+                    console.log("dtp getting");
+
+                    getDtp(props.editingId);
+                    break;
+                case "blog":
+                    console.log("blog getting");
+
+                    () => getBlog(props.editingId);
+                    break;
+                default:
+                    console.log("nothing getting");
+                    break;
+            }
         }
     }
-});
+);
 
 const confirmContent = async () => {
     const check = window.confirm("下記の内容で更新しますか？");
-    switch (openingCategory) {
+    switch (props.openingCategory) {
         case "work":
             await getWork(props.editingId);
             (await form.title) == "" ? (form.title = work.value.title) : false;
@@ -113,7 +122,7 @@ const closeEdit = () => {
 const deleteContent = async () => {
     const check = window.confirm("本当に記事を削除しますか？");
     if (check) {
-        switch (openingCategory) {
+        switch (props.openingCategory) {
             case "work":
                 await destroyWork(props.editingId);
                 break;
@@ -158,21 +167,21 @@ const imageSelected = () => {
                     <div class="flex justify-between">
                         <div class="flex flex-col gap-6">
                             <input
-                                v-if="openingCategory == 'work'"
+                                v-if="props.openingCategory == 'work'"
                                 class="bg-gray-700 text-gray-300 placeholder-gray-500 rounded-md px-4 py-2"
                                 placeholder="title"
                                 type="text"
                                 v-model="work.title"
                             />
                             <input
-                                v-if="openingCategory == 'dtp'"
+                                v-if="props.openingCategory == 'dtp'"
                                 class="bg-gray-700 text-gray-300 placeholder-gray-500 rounded-md px-4 py-2"
                                 placeholder="title"
                                 type="text"
                                 v-model="dtp.title"
                             />
                             <input
-                                v-if="openingCategory == 'blog'"
+                                v-if="props.openingCategory == 'blog'"
                                 class="bg-gray-700 text-gray-300 placeholder-gray-500 rounded-md px-4 py-2"
                                 placeholder="title"
                                 type="text"
@@ -180,7 +189,7 @@ const imageSelected = () => {
                             />
 
                             <textarea
-                                v-if="openingCategory == 'work'"
+                                v-if="props.openingCategory == 'work'"
                                 class="bg-gray-700 text-gray-300 placeholder-gray-500 rounded-md px-4 py-2 resize-y"
                                 placeholder="作品について記述してください。
 Markdown式で記述できます。"
@@ -191,7 +200,7 @@ Markdown式で記述できます。"
                                 v-model="work.content"
                             ></textarea>
                             <textarea
-                                v-if="openingCategory == 'dtp'"
+                                v-if="props.openingCategory == 'dtp'"
                                 class="bg-gray-700 text-gray-300 placeholder-gray-500 rounded-md px-4 py-2 resize-y"
                                 placeholder="作品について記述してください。
 Markdown式で記述できます。"
@@ -202,7 +211,7 @@ Markdown式で記述できます。"
                                 v-model="dtp.content"
                             ></textarea>
                             <textarea
-                                v-if="openingCategory == 'blog'"
+                                v-if="props.openingCategory == 'blog'"
                                 class="bg-gray-700 text-gray-300 placeholder-gray-500 rounded-md px-4 py-2 resize-y"
                                 placeholder="作品について記述してください。
 Markdown式で記述できます。"
@@ -218,7 +227,7 @@ Markdown式で記述できます。"
                                 <img
                                     v-if="
                                         blobImage == '' &&
-                                        openingCategory == 'work'
+                                        props.openingCategory == 'work'
                                     "
                                     :src="
                                         'https://suehiro-portfolio.s3.ap-northeast-1.amazonaws.com/images/' +
@@ -229,7 +238,7 @@ Markdown式で記述できます。"
                                 <img
                                     v-if="
                                         blobImage == '' &&
-                                        openingCategory == 'dtp'
+                                        props.openingCategory == 'dtp'
                                     "
                                     :src="
                                         'https://suehiro-portfolio.s3.ap-northeast-1.amazonaws.com/images/' +
@@ -245,7 +254,7 @@ Markdown式で記述できます。"
                             </div>
                             <div
                                 class="flex flex-col text-gray-50"
-                                v-if="openingCategory !== 'blog'"
+                                v-if="props.openingCategory !== 'blog'"
                             >
                                 <label for="changeImage">画像を変更する</label>
                                 <input
