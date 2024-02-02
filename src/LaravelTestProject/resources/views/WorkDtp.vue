@@ -9,7 +9,6 @@ import { useRoute } from "vue-router";
 const { getDtp, dtp, getDtps, dtps } = useDtps();
 
 const route = useRoute();
-console.log(route.params.id);
 onMounted(() => getDtp(route.params.id));
 </script>
 

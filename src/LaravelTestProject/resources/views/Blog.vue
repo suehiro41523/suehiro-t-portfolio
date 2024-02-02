@@ -16,11 +16,9 @@ marked.setOptions({
 });
 const parsedBlog = () => {
     try {
-        console.log(blog);
         return marked.parse(blog.value.content);
     } catch (error) {
         setTimeout(() => {
-            console.log(blog);
             return marked.parse(blog.value.content);
         }, 500);
     }

@@ -31,27 +31,20 @@ const testId = {
 };
 
 const clickLogin = (e) => {
-    console.log(id.value);
-    console.log(password.value);
     if (testId.id == id.value) {
         if (testId.password == password.value) {
             loggedIn.value = !loggedIn.value;
         }
     }
     if (testId.id == id.value) {
-        console.log("id is correct");
     } else {
-        console.log("id is wrong");
     }
     if (testId.password == password.value) {
-        console.log("pass is correct");
     } else {
-        console.log("pass is wrong");
     }
 };
 const editContent = (e, cat) => {
     openEdit.value = true;
-    console.log(openEdit);
     openingCategory.value = cat;
     editingId.value = e.id;
     switch (cat) {
@@ -75,13 +68,11 @@ const createContent = async (cat) => {
 const closeEdit = async () => {
     openEdit.value = false;
     getWorks();
-    console.log("closeEdit has been ran");
 };
 
 const closeCreate = () => {
     openCreate.value = false;
     getWorks();
-    console.log("closeCreate has been ran");
 };
 </script>
 

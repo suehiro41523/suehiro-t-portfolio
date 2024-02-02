@@ -30,21 +30,17 @@ watch(
         if (props.openEdit == true) {
             switch (props.openingCategory) {
                 case "work":
-                    console.log("work getting");
                     getWork(props.editingId);
                     break;
 
                 case "dtp":
-                    console.log("dtp getting");
                     getDtp(props.editingId);
                     break;
 
                 case "blog":
-                    console.log("blog getting");
                     getBlog(props.editingId);
                     break;
                 default:
-                    console.log("nothing getting");
                     break;
             }
         }
@@ -59,9 +55,6 @@ const confirmContent = async () => {
             await (form.content = work.value.content);
             await (form.image == "" ? (form.image = work.value.image) : false);
             await (blobImage.value = "");
-            await console.log(form);
-            await console.log(props.editingId);
-            await console.log(work);
             if (check) {
                 updateWork(props.editingId, form);
                 if (src.value !== "") {
@@ -77,9 +70,6 @@ const confirmContent = async () => {
             await (form.content = dtp.value.content);
             await (form.image == "" ? (form.image = dtp.value.image) : false);
             await (blobImage.value = "");
-            await console.log(form);
-            await console.log(props.editingId);
-            await console.log(dtp);
             if (check) {
                 updateDtp(props.editingId, form);
                 if (src.value !== "") {
@@ -93,9 +83,6 @@ const confirmContent = async () => {
         case "blog":
             await (form.title = blog.value.title);
             await (form.content = blog.value.content);
-            await console.log(form);
-            await console.log(props.editingId);
-            await console.log(blog);
             if (check) {
                 updateBlog(props.editingId, form);
                 if (src.value !== "") {
@@ -139,7 +126,6 @@ const deleteContent = async () => {
 };
 
 const imageSelected = () => {
-    console.log(eyecatch);
     const imageFile = eyecatch.value.files[0];
     blobImage.value = URL.createObjectURL(imageFile);
     src.value = imageFile;

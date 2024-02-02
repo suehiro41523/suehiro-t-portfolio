@@ -25,7 +25,6 @@ const props = defineProps({
 });
 
 const imageSelected = () => {
-    console.log(eyecatch);
     const imageFile = eyecatch.value.files[0];
     blobImage.value = URL.createObjectURL(imageFile);
     src.value = imageFile;
@@ -33,31 +32,25 @@ const imageSelected = () => {
 };
 
 const confirmContent = async () => {
-    console.log(form);
     const check = window.confirm("下記の内容で投稿しますか？");
     if (check) {
         switch (props.openingCategory) {
             case "work":
-                console.log("this is categorized to work");
                 await storeWork(form);
                 await storeImage(src);
                 break;
             case "dtp":
-                console.log("this is categorized to dtp");
                 await storeDtp(form);
                 await storeImage(src);
                 break;
             case "blog":
-                console.log("this is categorized to blog");
                 const blogForm = {
                     title: form.title,
                     content: form.content,
                 };
-                console.log(blogForm);
                 await storeBlog(blogForm);
                 break;
             default:
-                console.log("nothing happend");
                 break;
         }
         form.title = "";

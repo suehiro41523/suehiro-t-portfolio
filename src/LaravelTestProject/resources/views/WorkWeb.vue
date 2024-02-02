@@ -9,7 +9,6 @@ import { useRoute } from "vue-router";
 const { getWork, work, getWorks, works } = useWorks();
 
 const route = useRoute();
-console.log(route.params.id);
 onMounted(() => getWork(route.params.id));
 </script>
 
