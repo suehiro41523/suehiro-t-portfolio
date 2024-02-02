@@ -72,8 +72,9 @@ const createContent = async (cat) => {
     await (openingCategory.value = cat);
     openCreate.value = !openCreate.value;
 };
-const closeEdit = () => {
+const closeEdit = async () => {
     openEdit.value = false;
+    getWorks();
     console.log("closeEdit has been ran");
 };
 
@@ -86,7 +87,7 @@ const closeCreate = () => {
 
 <template>
     <Header></Header>
-    <section>
+    <main>
         <div v-if="!loggedIn">
             <div class="flex flex-col">
                 <section class="">
@@ -272,6 +273,6 @@ const closeCreate = () => {
                 ></EditContent>
             </div>
         </div>
-    </section>
+    </main>
     <Footer></Footer>
 </template>

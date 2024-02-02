@@ -4,7 +4,8 @@ import Top from "../../views/Top.vue";
 import BlogsArchive from "../../views/BlogsArchive.vue";
 import Blog from "../../views/Blog.vue";
 import WorksArchive from "../../views/WorksArchive.vue";
-import Work from "../../views/Work.vue";
+import WorkWeb from "../../views/WorkWeb.vue";
+import WorkDtp from "../../views/WorkDtp.vue";
 import Admin from "../../views/Admin.vue";
 import AdminEdit from "../../views/AdminEdit.vue";
 
@@ -21,7 +22,7 @@ const router = createRouter({
             component: BlogsArchive,
         },
         {
-            path: "/blog/:id",
+            path: "/blogs-archive/:id",
             component: Blog,
         },
         {
@@ -29,8 +30,12 @@ const router = createRouter({
             component: WorksArchive,
         },
         {
-            path: "/works/:id",
-            component: Work,
+            path: "/works-archive/website/:id",
+            component: WorkWeb,
+        },
+        {
+            path: "/works-archive/dtp/:id",
+            component: WorkDtp,
         },
         {
             path: "/admin/",

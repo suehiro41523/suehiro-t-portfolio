@@ -24,13 +24,9 @@ export default function useImages() {
                 },
             };
             const formData = new FormData();
-            // const blob = URL.createObjectURL(data);
             formData.append("image", data.value);
             formData.append("name", data.name);
-            console.log(formData.get("image"));
-            console.log(data);
-            await axios.post("images/", formData, { config });
-            // await axios.post("images/", data);
+            await axios.post("images/", formData, { config }); // S3にポスト
         } catch (error) {
             if (error.response.status === 422) {
                 errors.value = error.response.data.errors;
@@ -42,14 +38,32 @@ export default function useImages() {
     };
     const updateWork = async (id) => {
         try {
-            await axios.put("works/" + id, image.value);
+            const config = {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+            };
+            const formData = new FormData();
+            formData.append("image", data.value);
+            formData.append("name", data.name);
+            await axios.post("images/", formData, { config }); // S3にポスト
         } catch (error) {
-            if (error.response && error.response.status === 422) {
+            if (error.response.status === 422) {
                 errors.value = error.response.data.errors;
+                console.log("error detected");
             } else {
                 console.error("An unexpected error occurred:", error);
             }
         }
+        // try {
+        //     await axios.put("images/" + id, image.value);
+        // } catch (error) {
+        //     if (error.response && error.response.status === 422) {
+        //         errors.value = error.response.data.errors;
+        //     } else {
+        //         console.error("An unexpected error occurred:", error);
+        //     }
+        // }
     };
     const destroyWork = async (id) => {
         const getWorkById = (id) => {

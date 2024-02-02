@@ -11,9 +11,9 @@ const props = defineProps({
     closeEdit: Function,
     openingCategory: String,
 });
-const { getWork, work, updateWork, destroyWork } = useWorks();
-const { getDtp, dtp, updateDtp, destroyDtp } = useDtps();
-const { getBlog, blog, updateBlog, destroyBlog } = useBlogs();
+const { getWork, work, getWorks, updateWork, destroyWork } = useWorks();
+const { getDtp, dtp, getDtps, updateDtp, destroyDtp } = useDtps();
+const { getBlog, blog, getBlogs, updateBlog, destroyBlog } = useBlogs();
 const { storeImage } = useImages();
 const form = reactive({
     title: "",
@@ -33,15 +33,15 @@ watch(
                     console.log("work getting");
                     getWork(props.editingId);
                     break;
+
                 case "dtp":
                     console.log("dtp getting");
-
                     getDtp(props.editingId);
                     break;
+
                 case "blog":
                     console.log("blog getting");
-
-                    () => getBlog(props.editingId);
+                    getBlog(props.editingId);
                     break;
                 default:
                     console.log("nothing getting");
@@ -55,56 +55,54 @@ const confirmContent = async () => {
     const check = window.confirm("下記の内容で更新しますか？");
     switch (props.openingCategory) {
         case "work":
-            await getWork(props.editingId);
-            (await form.title) == "" ? (form.title = work.value.title) : false;
-            (await form.content) == ""
-                ? (form.content = work.value.content)
-                : false;
-            (await form.image) == "" ? (form.image = work.value.image) : false;
+            await (form.title = work.value.title);
+            await (form.content = work.value.content);
+            await (form.image == "" ? (form.image = work.value.image) : false);
             await (blobImage.value = "");
             await console.log(form);
             await console.log(props.editingId);
             await console.log(work);
             if (check) {
                 updateWork(props.editingId, form);
-                storeImage(src);
+                if (src.value !== "") {
+                    storeImage(src);
+                }
                 props.closeEdit();
+                getWorks();
             }
             break;
 
         case "dtp":
-            await getDtp(props.editingId);
-            (await form.title) == "" ? (form.title = dtp.value.title) : false;
-            (await form.content) == ""
-                ? (form.content = dtp.value.content)
-                : false;
-            (await form.image) == "" ? (form.image = dtp.value.image) : false;
+            await (form.title = dtp.value.title);
+            await (form.content = dtp.value.content);
+            await (form.image == "" ? (form.image = dtp.value.image) : false);
             await (blobImage.value = "");
             await console.log(form);
             await console.log(props.editingId);
             await console.log(dtp);
             if (check) {
                 updateDtp(props.editingId, form);
-                storeImage(src);
+                if (src.value !== "") {
+                    storeImage(src);
+                }
                 props.closeEdit();
+                getDtps();
             }
             break;
 
         case "blog":
-            await getBlog(props.editingId);
-            (await form.title) == "" ? (form.title = blog.value.title) : false;
-            (await form.content) == ""
-                ? (form.content = blog.value.content)
-                : false;
-            (await form.image) == "" ? (form.image = blog.value.image) : false;
-            await (blobImage.value = "");
+            await (form.title = blog.value.title);
+            await (form.content = blog.value.content);
             await console.log(form);
             await console.log(props.editingId);
             await console.log(blog);
             if (check) {
                 updateBlog(props.editingId, form);
-                storeImage(src);
+                if (src.value !== "") {
+                    storeImage(src);
+                }
                 props.closeEdit();
+                getBlogs();
             }
             break;
         default:

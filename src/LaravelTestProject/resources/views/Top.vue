@@ -258,6 +258,12 @@ onMounted(() => getBlogs());
                     </div>
                 </div>
             </div>
+            <div class="ml-auto w-fit">
+                <CtaButton
+                    text="作品一覧をみる"
+                    link="/works-archive"
+                ></CtaButton>
+            </div>
         </div>
     </section>
     <section class="container mx-auto">
