@@ -12,6 +12,8 @@ import useWorks from "../js/composabe/works";
 import useDtps from "../js/composabe/dtps";
 import useBlogs from "../js/composabe/blogs";
 import { onMounted } from "vue";
+import router from "../js/router";
+import { marked } from "marked";
 
 const { getWorks, works } = useWorks();
 const { getDtps, dtps } = useDtps();
@@ -19,6 +21,16 @@ const { getBlogs, blogs } = useBlogs();
 onMounted(() => getWorks());
 onMounted(() => getDtps());
 onMounted(() => getBlogs());
+
+const parsedBlog = () => {
+    try {
+        return marked.parse(blog.value.content);
+    } catch (error) {
+        setTimeout(() => {
+            return marked.parse(blog.value.content);
+        }, 500);
+    }
+};
 </script>
 
 <template>
@@ -177,7 +189,7 @@ onMounted(() => getBlogs());
                 私のブログもご覧になってみてください。
             </div>
             <div class="ml-auto">
-                <CtaButton text="最近のブログを見る" link="#"></CtaButton>
+                <CtaButton text="最近のブログを見る" link="#blogs"></CtaButton>
             </div>
         </div>
     </section>
@@ -207,10 +219,13 @@ onMounted(() => getBlogs());
                         <div
                             class="[&:nth-child(3n)]:ml-auto [&:nth-child(3n-1)]:mx-auto"
                             v-for="(work, i) in works"
+                            @click="
+                                router.push('/works-archive/website/' + work.id)
+                            "
                         >
                             <img
                                 v-if="i <= 5"
-                                class="w-[288px] h-[168px] rounded-md object-cover object-top"
+                                class="w-[288px] h-[168px] rounded-md object-cover object-top hover:shadow-yellow-200/10 transition-all duration-300"
                                 :src="
                                     'https://suehiro-portfolio.s3.ap-northeast-1.amazonaws.com/images/' +
                                     work.image
@@ -244,10 +259,11 @@ onMounted(() => getBlogs());
                         <div
                             class="[&:nth-child(3n)]:ml-auto [&:nth-child(3n-1)]:mx-auto"
                             v-for="(dtp, i) in dtps"
+                            @click="router.push('/works-archive/dtp/' + dtp.id)"
                         >
                             <img
                                 v-if="i <= 5"
-                                class="w-[288px] h-[168px] rounded-md object-cover object-top"
+                                class="w-[288px] h-[168px] rounded-md object-cover object-top hover:shadow-yellow-200/10 transition-all duration-300"
                                 :src="
                                     'https://suehiro-portfolio.s3.ap-northeast-1.amazonaws.com/images/' +
                                     dtp.image
@@ -267,7 +283,7 @@ onMounted(() => getBlogs());
         </div>
     </section>
     <section class="container mx-auto">
-        <Heading2 title="blog"></Heading2>
+        <Heading2 title="blogs"></Heading2>
         <div>
             <div class="grid grid-cols-3 gap-y-4 mb-6">
                 <div
@@ -291,14 +307,25 @@ onMounted(() => getBlogs());
                     >
                         <div
                             v-if="i <= 5"
-                            class="w-[288px] h-[120px] rounded-md object-cover object-top text-gray-50 bg-gray-700 flex flex-col gap-3 px-4 py-2"
+                            class="w-[288px] h-[120px] rounded-md object-cover object-top text-gray-50 bg-gray-700 flex flex-col gap-3 px-4 py-2 cursor-pointer hover:shadow-yellow-200/10 transition-all duration-300"
+                            @click="router.push('blogs-archive/' + blog.id)"
                         >
                             <h3 class="text-xl font-bold">
                                 {{ blog.title }}
                             </h3>
-                            <p class="text-sm">
-                                {{ blog.content.substring(0, 54) + "..." }}
-                            </p>
+                            <span
+                                v-on:click.prevent
+                                v-html="
+                                    marked
+                                        .parse(blog.content)
+                                        .match(
+                                            /[^\<\>]+(?=\<[^\<\>]+\>)|[^\<\>]+$/g
+                                        )
+                                        .toString()
+                                        .substring(0, 60) + '...'
+                                "
+                                class="text-sm preparsed"
+                            ></span>
                         </div>
                     </div>
                 </div>

@@ -3,10 +3,24 @@ import Header from "../js/components/Header.vue";
 import Heading2 from "../js/components/Heading2.vue";
 import Footer from "../js/components/Footer.vue";
 import useWorks from "../js/composabe/works.js";
-import { watch, ref, onMounted } from "vue";
+import { onMounted } from "vue";
 import { useRoute } from "vue-router";
+import { marked } from "marked";
 
 const { getWork, work, getWorks, works } = useWorks();
+
+marked.setOptions({
+    breaks: true,
+});
+const parsedWork = () => {
+    try {
+        return marked.parse(work.value.content);
+    } catch (error) {
+        setTimeout(() => {
+            return marked.parse(work.value.content);
+        }, 500);
+    }
+};
 
 const route = useRoute();
 onMounted(() => getWork(route.params.id));
@@ -21,9 +35,10 @@ onMounted(() => getWork(route.params.id));
                 {{ work.title }}
             </h3>
             <div class="flex gap-14 mt-14">
-                <div class="text-gray-50 bg-gray-700 px-3 py-4 h-fit">
-                    {{ work.content }}
-                </div>
+                <div
+                    v-html="parsedWork()"
+                    class="text-gray-50 bg-gray-700 px-3 py-4 h-fit parsed"
+                ></div>
                 <img
                     class="max-w-[40%]"
                     :src="

@@ -5,6 +5,8 @@ import Heading2 from "../js/components/Heading2.vue";
 import Heading3 from "../js/components/Heading3.vue";
 import useBlogs from "../js/composabe/blogs.js";
 import { onMounted } from "vue";
+import { marked } from "marked";
+
 const { getBlog, blog, getBlogs, blogs } = useBlogs();
 
 onMounted(() => getBlogs());
@@ -13,9 +15,7 @@ onMounted(() => getBlogs());
 <template>
     <Header></Header>
     <main class="container min-h-screen mx-auto relative">
-        <Heading2 noMargin title="blogs"></Heading2>
-        <div class="text-gray-50 text-3xl font-bold mb-20">作品一覧</div>
-        <Heading3 title="Webサイト"></Heading3>
+        <Heading2 title="blogs"></Heading2>
         <div class="relative grid grid-cols-3 gap-y-4 mb-6">
             <div
                 class="[&:nth-child(3n)]:ml-auto [&:nth-child(3n-1)]:mx-auto"
@@ -28,9 +28,18 @@ onMounted(() => getBlogs());
                         <p class="text-xl font-bold">
                             {{ blog.title }}
                         </p>
-                        <p class="text-gray-50 text-sm">
-                            {{ blog.content.substring(0, 54) + "..." }}
-                        </p>
+                        <p
+                            v-html="
+                                marked
+                                    .parse(blog.content)
+                                    .match(
+                                        /[^\<\>]+(?=\<[^\<\>]+\>)|[^\<\>]+$/g
+                                    )
+                                    .toString()
+                                    .substring(0, 60) + '...'
+                            "
+                            class="text-gray-50 text-sm"
+                        ></p>
                     </div>
                 </router-link>
             </div>

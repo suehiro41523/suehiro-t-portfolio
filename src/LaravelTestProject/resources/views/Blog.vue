@@ -4,7 +4,7 @@ import Heading2 from "../js/components/Heading2.vue";
 import Footer from "../js/components/Footer.vue";
 import useBlogs from "../js/composabe/blogs";
 import { useRoute } from "vue-router";
-import { computed, onMounted } from "vue";
+import { onMounted } from "vue";
 import { marked } from "marked";
 const { getBlog, blog, getBlogs, blogs } = useBlogs();
 
@@ -35,7 +35,7 @@ const parsedBlog = () => {
             </h3>
             <div class="flex gap-14 mt-14">
                 <div
-                    class="text-gray-50 bg-gray-700 px-3 py-4 h-fit"
+                    class="text-gray-50 bg-gray-700 px-3 py-4 h-fit parsed"
                     v-html="parsedBlog()"
                 ></div>
             </div>

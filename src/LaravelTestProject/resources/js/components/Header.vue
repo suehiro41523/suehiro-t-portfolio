@@ -1,12 +1,4 @@
-<script setup>
-defineProps({
-    menuLists: {
-        type: [String],
-        requiered: false,
-        default: () => [],
-    },
-});
-</script>
+<script setup></script>
 
 <template>
     <header
@@ -29,14 +21,7 @@ defineProps({
                     <a class="p-2" href="/#works"> Works</a>
                 </li>
                 <li>
-                    <a class="p-2" href="/#blog"> Blog</a>
-                </li>
-                <li v-for="menuList in menuLists">
-                    <router-link
-                        class="p-2"
-                        :to="menuList"
-                        v-text="menuList"
-                    ></router-link>
+                    <a class="p-2" href="/#blogs"> Blog</a>
                 </li>
             </ul>
         </nav>

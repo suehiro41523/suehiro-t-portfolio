@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.parsed {
+    h2 {
+        @apply font-bold text-2xl py-2;
+    }
+    h3 {
+        @apply font-bold text-lg  pl-4 relative before:block before:absolute before:w-1 before:bg-gray-50 before:top-0 before:left-0 before:h-full;
+    }
+    p {
+        @apply font-normal text-base py-1;
+    }
+    a {
+        @apply cursor-pointer underline;
+    }
+}
+
+.preparsed {
+    * {
+        @apply inline;
+    }
+}

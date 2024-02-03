@@ -4,9 +4,23 @@ import Heading2 from "../js/components/Heading2.vue";
 import Footer from "../js/components/Footer.vue";
 import useDtps from "../js/composabe/dtps.js";
 import { watch, ref, onMounted } from "vue";
+import { marked } from "marked";
 import { useRoute } from "vue-router";
 
 const { getDtp, dtp, getDtps, dtps } = useDtps();
+
+marked.setOptions({
+    breaks: true,
+});
+const parsedDtp = () => {
+    try {
+        return marked.parse(dtp.value.content);
+    } catch (error) {
+        setTimeout(() => {
+            return marked.parse(dtp.value.content);
+        }, 500);
+    }
+};
 
 const route = useRoute();
 onMounted(() => getDtp(route.params.id));
@@ -21,9 +35,10 @@ onMounted(() => getDtp(route.params.id));
                 {{ dtp.title }}
             </h3>
             <div class="flex gap-14 mt-14">
-                <div class="text-gray-50 bg-gray-700 px-3 py-4 h-fit">
-                    {{ dtp.content }}
-                </div>
+                <div
+                    v-html="parsedDtp()"
+                    class="text-gray-50 bg-gray-700 px-3 py-4 h-fit parsed"
+                ></div>
                 <img
                     class="max-w-[40%]"
                     :src="
