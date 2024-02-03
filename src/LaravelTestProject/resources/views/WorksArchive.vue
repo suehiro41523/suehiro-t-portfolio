@@ -24,7 +24,7 @@ onMounted(() => getDtps());
             <div class="relative grid grid-cols-3 gap-y-4 mb-6">
                 <div
                     class="[&:nth-child(3n)]:ml-auto [&:nth-child(3n-1)]:mx-auto"
-                    v-for="(work, i) in works"
+                    v-for="work in works"
                 >
                     <router-link :to="'/works-archive/website/' + work.id">
                         <p class="text-gray-50 font-bold">{{ work.title }}</p>
@@ -43,7 +43,7 @@ onMounted(() => getDtps());
             <div class="relative grid grid-cols-3 gap-y-4 mb-6">
                 <div
                     class="[&:nth-child(3n)]:ml-auto [&:nth-child(3n-1)]:mx-auto"
-                    v-for="(dtp, i) in dtps"
+                    v-for="dtp in dtps"
                     @click="router.push('/works-archive/dtp/' + dtp.id)"
                 >
                     <p class="text-gray-50 font-bold">{{ dtp.title }}</p>

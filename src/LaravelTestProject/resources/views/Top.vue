@@ -221,13 +221,12 @@ const parsedBlog = () => {
                     >
                         <div
                             class="[&:nth-child(3n)]:ml-auto [&:nth-child(3n-1)]:mx-auto"
-                            v-for="(work, i) in works"
+                            v-for="work in works.slice(0, 6)"
                             @click="
                                 router.push('/works-archive/website/' + work.id)
                             "
                         >
                             <img
-                                v-if="i <= 5"
                                 class="w-[288px] h-[168px] rounded-md object-cover object-top hover:shadow-yellow-200/10 transition-all duration-300"
                                 :src="
                                     'https://suehiro-portfolio.s3.ap-northeast-1.amazonaws.com/images/' +
@@ -264,11 +263,10 @@ const parsedBlog = () => {
                     >
                         <div
                             class="[&:nth-child(3n)]:ml-auto [&:nth-child(3n-1)]:mx-auto"
-                            v-for="(dtp, i) in dtps"
+                            v-for="dtp in dtps.slice(0, 6)"
                             @click="router.push('/works-archive/dtp/' + dtp.id)"
                         >
                             <img
-                                v-if="i <= 5"
                                 class="w-[288px] h-[168px] rounded-md object-cover object-top hover:shadow-yellow-200/10 transition-all duration-300"
                                 :src="
                                     'https://suehiro-portfolio.s3.ap-northeast-1.amazonaws.com/images/' +
@@ -311,10 +309,9 @@ const parsedBlog = () => {
             >
                 <div
                     class="[&:nth-child(3n)]:ml-auto [&:nth-child(3n-1)]:mx-auto w-[288px] h-[120px] rounded-md object-cover object-top text-gray-50 bg-gray-700 flex flex-col gap-3 px-4 py-2 cursor-pointer hover:shadow-yellow-200/10 transition-all duration-300"
-                    v-for="(blog, i) in blogs"
+                    v-for="blog in blogs.slice(0, 6)"
                 >
                     <div
-                        v-if="i <= 5"
                         class=""
                         @click="router.push('blogs-archive/' + blog.id)"
                     >
