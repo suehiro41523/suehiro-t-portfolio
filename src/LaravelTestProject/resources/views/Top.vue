@@ -215,7 +215,10 @@ const parsedBlog = () => {
                             ></div>
                         </div>
                     </div>
-                    <div class="relative grid grid-cols-3 gap-y-4 mb-6">
+                    <div
+                        v-if="works.length !== 0"
+                        class="relative grid grid-cols-3 gap-y-4 mb-6"
+                    >
                         <div
                             class="[&:nth-child(3n)]:ml-auto [&:nth-child(3n-1)]:mx-auto"
                             v-for="(work, i) in works"
@@ -255,7 +258,10 @@ const parsedBlog = () => {
                             ></div>
                         </div>
                     </div>
-                    <div class="relative grid grid-cols-3 gap-y-4 mb-6">
+                    <div
+                        v-if="dtps.length !== 0"
+                        class="relative grid grid-cols-3 gap-y-4 mb-6"
+                    >
                         <div
                             class="[&:nth-child(3n)]:ml-auto [&:nth-child(3n-1)]:mx-auto"
                             v-for="(dtp, i) in dtps"
@@ -285,32 +291,37 @@ const parsedBlog = () => {
     <section class="container mx-auto">
         <Heading2 title="blogs"></Heading2>
         <div>
-            <div class="grid grid-cols-3 gap-y-4 mb-6">
+            <div
+                v-if="blogs.length == 0"
+                class="relative grid grid-cols-3 gap-y-4 mb-6"
+            >
                 <div
-                    v-if="blogs.length == 0"
-                    class="relative grid grid-cols-3 gap-y-4 mb-6"
+                    class="[&:nth-child(3n)]:ml-auto [&:nth-child(3n-1)]:mx-auto"
+                    v-for="i in 6"
+                    :key="i"
                 >
                     <div
-                        class="[&:nth-child(3n)]:ml-auto [&:nth-child(3n-1)]:mx-auto"
-                        v-for="i in 6"
-                        :key="i"
-                    >
-                        <div
-                            class="w-[288px] h-[168px] bg-gray-300 rounded-md"
-                        ></div>
-                    </div>
+                        class="w-[288px] h-[168px] bg-gray-300 rounded-md"
+                    ></div>
                 </div>
-                <div class="relative grid grid-cols-3 gap-y-4 mb-6">
+            </div>
+            <div
+                v-if="blogs.length !== 0"
+                class="relative grid grid-cols-3 gap-y-4 mb-6"
+            >
+                <div
+                    class="[&:nth-child(3n)]:ml-auto [&:nth-child(3n-1)]:mx-auto w-[288px] h-[120px] rounded-md object-cover object-top text-gray-50 bg-gray-700 flex flex-col gap-3 px-4 py-2 cursor-pointer hover:shadow-yellow-200/10 transition-all duration-300"
+                    v-for="(blog, i) in blogs"
+                >
                     <div
-                        class="[&:nth-child(3n)]:ml-auto [&:nth-child(3n-1)]:mx-auto"
-                        v-for="(blog, i) in blogs"
+                        v-if="i <= 5"
+                        class=""
+                        @click="router.push('blogs-archive/' + blog.id)"
                     >
-                        <div
-                            v-if="i <= 5"
-                            class="w-[288px] h-[120px] rounded-md object-cover object-top text-gray-50 bg-gray-700 flex flex-col gap-3 px-4 py-2 cursor-pointer hover:shadow-yellow-200/10 transition-all duration-300"
-                            @click="router.push('blogs-archive/' + blog.id)"
-                        >
-                            <h3 class="text-xl font-bold">
+                        <div>
+                            <h3
+                                class="text-xl font-bold overflow-hidden whitespace-nowrap text-ellipsis"
+                            >
                                 {{ blog.title }}
                             </h3>
                             <span
@@ -322,7 +333,7 @@ const parsedBlog = () => {
                                             /[^\<\>]+(?=\<[^\<\>]+\>)|[^\<\>]+$/g
                                         )
                                         .toString()
-                                        .substring(0, 60) + '...'
+                                        .substring(0, 54) + '...'
                                 "
                                 class="text-sm preparsed"
                             ></span>
