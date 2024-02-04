@@ -118,13 +118,13 @@ const parsedBlog = () => {
                     </div>
                 </div>
                 <div
-                    class="mx-auto md:mx-0 flex [background-color:rgba(255,255,255,0.06)] p-3 rounded-xl sticky gap-6 items-center w-fit h-fit"
+                    class="mx-auto md:mx-0 flex [background-color:rgba(255,255,255,0.06)] p-3 rounded-xl gap-6 items-center w-fit h-fit"
                 >
                     <div
                         class="md:w-[120px] w-[100px] md:h-[160px] h-[133px] rounded-lg px-1 pt-[10] bg-[radial-gradient(86.65%_86.87%_at_57.92%_96.71%,#44337A_0%,#1A202C_100%)]"
                     >
                         <img
-                            class="md:translate-y-[30px] translate-y-[20px] scale-125"
+                            class="md:translate-y-[20px] translate-y-[13px] md:scale-110 scale-125"
                             src="../../public/img/suehiro-icon.png"
                             alt=""
                         />
