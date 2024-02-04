@@ -2,6 +2,7 @@ import { ref } from "vue";
 import axios from "axios";
 
 axios.defaults.baseURL = "http://localhost/api/v1/";
+axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
 
 export default function useImages() {
     const images = ref([]);
