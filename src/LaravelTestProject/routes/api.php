@@ -29,4 +29,4 @@ Route::group(['prefix' => 'v1'], function ()
     Route::apiResource('images', ImageController::class);
     Route::apiResource('dtps', DtpController::class);
     Route::apiResource('blogs', BlogController::class);
-});
+})->middleware('cors');
