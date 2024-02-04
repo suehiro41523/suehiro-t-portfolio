@@ -136,10 +136,10 @@ const imageSelected = () => {
 <template>
     <div v-if="props.openEdit">
         <div
-            class="bg-gray-900/10 backdrop-blur-sm absolute top-0 left-0 py-8 w-screen h-screen z-10 overflow-scroll"
+            class="bg-gray-900/10 backdrop-blur-sm fixed top-0 left-0 py-8 w-screen h-screen z-10 overflow-scroll"
         >
             <div
-                class="relative w-[720px] p-6 rounded-lg bg-gray-600 mx-auto z-20"
+                class="relative md:w-[720px] p-6 rounded-lg bg-gray-600 mx-auto z-20"
             >
                 <h2 class="font-bold text-gray-500 text-xl">更新</h2>
 
@@ -148,7 +148,9 @@ const imageSelected = () => {
                     class="mt-6"
                     enctype="multipart/form-data"
                 >
-                    <div class="flex justify-between">
+                    <div
+                        class="flex md:flex-row flex-col md:gap-0 gap-4 justify-between"
+                    >
                         <div class="flex flex-col gap-6">
                             <input
                                 v-if="props.openingCategory == 'work'"

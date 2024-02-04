@@ -23,7 +23,7 @@ onMounted(() => getBlogs());
             >
                 <router-link :to="'/blogs-archive/' + blog.id">
                     <div
-                        class="w-[288px] h-[120px] rounded-md object-cover object-top text-gray-50 bg-gray-700 flex flex-col gap-3 px-4 py-2"
+                        class="lg:w-[288px] w-[210px] h-[120px] rounded-md object-cover object-top text-gray-50 bg-gray-700 flex flex-col gap-3 px-4 py-2"
                     >
                         <p class="text-xl font-bold">
                             {{ blog.title }}

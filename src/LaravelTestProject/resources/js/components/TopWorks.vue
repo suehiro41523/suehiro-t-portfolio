@@ -17,18 +17,21 @@ onMounted(() => getWorks());
         v-if="works.length == 0"
         class="[background-color:rgba(255,255,255,0.06)] p-10 rounded-xl w-fit flex gap-10"
     >
-        <div class="w-[288px] h-[168px] bg-gray-300 rounded-md"></div>
-        <div class="w-[288px] h-[168px] bg-gray-300 rounded-md"></div>
-        <div class="w-[288px] h-[168px] bg-gray-300 rounded-md"></div>
+        <div class="aspect-video bg-gray-300 rounded-md"></div>
+        <div class="aspect-video bg-gray-300 rounded-md"></div>
+        <div class="aspect-video bg-gray-300 rounded-md"></div>
     </div>
     <div
         v-if="works.length !== 0"
-        class="[background-color:rgba(255,255,255,0.06)] p-10 rounded-xl w-fit"
+        class="mx-4 md:h-auto h-[180px] [background-color:rgba(255,255,255,0.06)] lg:p-10 p-5 rounded-xl md:w-fit w-[calc(100vw-32px)] overflow-x-auto"
     >
-        <ul class="flex gap-10">
-            <li v-for="(work, i) in works.slice(0, 3)">
+        <ul class="h-full flex lg:gap-10 gap-5">
+            <li
+                class="aspect-video flex-1"
+                v-for="(work, i) in works.slice(0, 3)"
+            >
                 <img
-                    class="w-[288px] h-[168px] rounded-md object-cover object-top"
+                    class="aspect-video rounded-md object-cover object-top"
                     :src="
                         'https://suehiro-portfolio.s3.ap-northeast-1.amazonaws.com/images/' +
                         work.image

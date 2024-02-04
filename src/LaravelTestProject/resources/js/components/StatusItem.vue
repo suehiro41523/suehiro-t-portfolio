@@ -6,12 +6,14 @@ defineProps({
 </script>
 
 <template>
-    <div class="flex gap-4 text-xs">
-        <span>
-            {{ title }}
-        </span>
-        <span> : </span>
-        <span>
+    <div class="flex md:flex-row flex-col md:gap-4 gap-0 text-xs">
+        <div class="flex">
+            <span class="block w-[60px]">
+                {{ title }}
+            </span>
+            <span> : </span>
+        </div>
+        <span class="font-bold">
             {{ value }}
         </span>
     </div>

@@ -29,7 +29,7 @@ onMounted(() => getDtps());
                     <router-link :to="'/works-archive/website/' + work.id">
                         <p class="text-gray-50 font-bold">{{ work.title }}</p>
                         <img
-                            class="w-[288px] h-[168px] rounded-md object-cover object-top"
+                            class="lg:w-[288px] w-[210px] lg:h-[162px] h-[118px] rounded-md object-cover object-top"
                             :src="
                                 'https://suehiro-portfolio.s3.ap-northeast-1.amazonaws.com/images/' +
                                 work.image
@@ -48,7 +48,7 @@ onMounted(() => getDtps());
                 >
                     <p class="text-gray-50 font-bold">{{ dtp.title }}</p>
                     <img
-                        class="w-[288px] h-[168px] rounded-md object-cover object-top"
+                        class="lg:w-[288px] w-[210px] lg:h-[162px] h-[118px] rounded-md object-cover object-top"
                         :src="
                             'https://suehiro-portfolio.s3.ap-northeast-1.amazonaws.com/images/' +
                             dtp.image

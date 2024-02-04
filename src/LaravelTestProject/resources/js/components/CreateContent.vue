@@ -64,15 +64,15 @@ const confirmContent = async () => {
 <template>
     <div v-if="props.openCreate">
         <div
-            class="bg-gray-900/10 backdrop-blur-sm absolute top-0 left-0 w-screen h-screen z-10"
+            class="bg-gray-900/10 backdrop-blur-sm fixed top-0 left-0 w-screen h-screen z-10"
         ></div>
         <div
-            class="absolute w-[720px] p-6 rounded-lg bg-gray-600 mx-auto top-8 left-1/2 -translate-x-1/2 z-20"
+            class="absolute md:w-[720px] p-6 rounded-lg bg-gray-600 mx-auto top-8 left-1/2 -translate-x-1/2 z-20"
         >
             <h2 class="font-bold text-gray-500 text-xl">新規登録</h2>
 
             <form @submit.prevent class="mt-6" enctype="multipart/form-data">
-                <div class="flex justify-between">
+                <div class="flex md:flex-row flex-col justify-between">
                     <div class="flex flex-col gap-6">
                         <input
                             class="bg-gray-700 text-gray-300 placeholder-gray-500 rounded-md px-4 py-2"

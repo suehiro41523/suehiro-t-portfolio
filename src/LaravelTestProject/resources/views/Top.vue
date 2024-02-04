@@ -37,15 +37,19 @@ const parsedBlog = () => {
     <Header></Header>
     <section class="container min-h-screen mx-auto relative">
         <div
-            class="w-fit absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            class="text-nowrap w-fit absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
         >
             <h2 class="text-gray-400 text-2xl leading-8 font-bold">
-                すえひろのポートフォリオサイト
+                すえひろの
+                <br class="lg:hidden" />
+                ポートフォリオサイト
             </h2>
             <div
                 class="text-gray-400 font-bold leading-7 tracking-[2.7px] text-lg"
             >
-                をご覧いただきありがとうございます。
+                をご覧いただき
+                <br class="lg:hidden" />
+                ありがとうございます。
             </div>
         </div>
         <div class="absolute bottom-10">
@@ -53,37 +57,44 @@ const parsedBlog = () => {
         </div>
 
         <div
-            class="w-[100px] h-[100px] bg-yellow-200 [filter:blur(72px)] absolute top-1/4 left-1/4"
+            class="md:w-[100px] w-[60px] md:h-[100px] h-[60px] bg-yellow-200 [filter:blur(72px)] absolute md:top-1/4 top-1/2 left-1/4"
         ></div>
         <div
             class="w-[100px] h-[100px] bg-gray-600 [filter:blur(72px)] absolute top-3/4 left-1/3"
         ></div>
         <div class="absolute flex gap-[88px] right-1/4 -top-8">
             <div
-                class="w-14 h-[446px] bg-purple-600 [filter:blur(43.5px)] rotate-[-30deg]"
+                class="w-14 md:h-[446px] h-[370px] bg-purple-600 [filter:blur(43.5px)] rotate-[-30deg]"
             ></div>
             <div
-                class="w-[25px] h-[446px] bg-blue-400 [filter:blur(43.5px)] rotate-[-30deg]"
+                class="w-[25px] md:h-[446px] h-[370px] bg-blue-400 [filter:blur(43.5px)] rotate-[-30deg]"
             ></div>
         </div>
     </section>
-    <section class="container mx-auto relative mb-20">
+    <section
+        class="px-2 md:px-0 container mx-auto relative mb-20 overflow-x-hidden"
+    >
         <Heading2 title="about"></Heading2>
         <div
             class="mb-24 relative before:absolute before:top-[30px] before:block before:left-1/4 before:w-[474px] before:h-[474px] before:border-[5px] before:rounded-full before:border-yellow-200 before:[filter:blur(39px)]"
         >
             <Heading3 title="Web技術への思い"></Heading3>
-            <div class="flex justify-between relative">
+            <div
+                class="flex lg:flex-row flex-col-reverse lg:gap-0 gap-8 justify-between relative"
+            >
                 <div>
                     <div
-                        class="text-gray-700 text-xl font-bold px-4 py-3 bg-gray-400 w-fit rounded-lg before:w-4 before:h-[13px] before:bg-gray-400 before:block before:absolute relative ml-5 before:-left-5 before:rounded-[50%] before:top-0 before:-translate-y-1/2"
+                        class="mx-auto md:mx-0 md:ml-5 text-gray-700 md:text-xl text-lg font-bold px-4 py-3 bg-gray-400 w-fit rounded-lg before:w-4 before:h-[13px] before:bg-gray-400 before:block before:absolute relative before:-left-5 before:rounded-[50%] before:top-0 before:-translate-y-1/2"
                     >
-                        Web技術を使って社会に貢献したい！
+                        Web技術を使って
+                        <br class="md:hidden" />
+                        社会に貢献したい！
                     </div>
                     <div class="text-gray-100 flex flex-col gap-3 pl-4 mt-3">
                         <span> 良くも悪くも私の原動力はこれに尽きます。 </span>
                         <span class="mt-4">
-                            web技術に興味を持ったきっかけは大学生の時に
+                            web技術に興味を持ったきっかけは
+                            <br class="md:hidden" />大学生の時に
                         </span>
                         <div
                             class="bg-green-600 w-fit p-1 rounded-xl rounded-tl-none"
@@ -92,8 +103,12 @@ const parsedBlog = () => {
                         </div>
                         <span> という些細なことでした。 </span>
                         <span>
-                            しかし、学習を進めるごとに興味関心は募るばかりです。<br />
-                            今の私には企業の技術責任者様のような偉業はないですが、<br />
+                            しかし、学習を進めるごとに
+                            <br class="md:hidden" />
+                            興味関心は募るばかりです。<br />
+                            今の私には企業の技術責任者様のような
+                            <br class="md:hidden" />
+                            偉業はないですが、<br />
                             地道にコツコツ研鑽を積み、
                         </span>
                         <span class="font-bold">
@@ -103,13 +118,13 @@ const parsedBlog = () => {
                     </div>
                 </div>
                 <div
-                    class="flex [background-color:rgba(255,255,255,0.06)] p-3 rounded-xl sticky gap-6 items-center h-fit"
+                    class="mx-auto md:mx-0 flex [background-color:rgba(255,255,255,0.06)] p-3 rounded-xl sticky gap-6 items-center w-fit h-fit"
                 >
                     <div
-                        class="w-[120px] h-[152px] rounded-lg px-1 pt-[10] bg-[radial-gradient(86.65%_86.87%_at_57.92%_96.71%,#44337A_0%,#1A202C_100%)]"
+                        class="md:w-[120px] w-[100px] md:h-[160px] h-[133px] rounded-lg px-1 pt-[10] bg-[radial-gradient(86.65%_86.87%_at_57.92%_96.71%,#44337A_0%,#1A202C_100%)]"
                     >
                         <img
-                            class="translate-y-[13px] scale-110"
+                            class="md:translate-y-[30px] translate-y-[20px] scale-125"
                             src="../../public/img/suehiro-icon.png"
                             alt=""
                         />
@@ -134,9 +149,11 @@ const parsedBlog = () => {
                 </div>
             </div>
         </div>
-        <Heading3 title="これまでの研鑽"></Heading3>
-        <div class="text-gray-100 flex gap-8 justify-between">
-            <div class="w-1/2 max-w-[535px]">
+        <Heading3 title="これまでの学習"></Heading3>
+        <div
+            class="mx-auto lg:mx-0 w-fit text-gray-100 flex lg:flex-row flex-col-reverse gap-8 justify-between"
+        >
+            <div class="lg:w-1/2 max-w-[535px]">
                 当たり前と言えば当たり前ですが、<br />
                 私は定期的に目標の立て直しをして技術力の向上を図っています。<br />
                 <br />
@@ -149,7 +166,7 @@ const parsedBlog = () => {
                 webアプリの全容を理解して制作に参加することです。
             </div>
             <div
-                class="flex flex-col place-content-between relative before:absolute before:w-[2px] before:h-full before:bg-purple-400 before:left-1 before:top-4 after:absolute after:block after:w-[10px] after:h-[400px] after:bg-cyan-400 after:[filter:blur(52px)] after:left-1/2 after:-top-7 after:rotate-45"
+                class="w-fit flex flex-col place-content-between relative before:absolute before:w-[2px] before:h-full before:bg-purple-400 before:left-1 before:top-4 after:absolute after:block after:w-[10px] after:h-[400px] after:bg-cyan-400 after:[filter:blur(52px)] after:left-1/2 after:-top-7 after:rotate-45"
             >
                 <TimelineItems
                     goal="HTMLを理解する"
@@ -183,7 +200,7 @@ const parsedBlog = () => {
                 上記の言葉にまとまるまでに様々な経験と思いをしてきています。
             </div>
             <div
-                class="px-3 py-2 rounded-lg [background-color:rgba(255,255,255,0.08)]"
+                class="mx-2 px-3 py-2 rounded-lg [background-color:rgba(255,255,255,0.08)]"
             >
                 これまでの私の経験を詳しくご覧いただくお時間があればぜひ<br />
                 私のブログもご覧になってみてください。
@@ -193,41 +210,41 @@ const parsedBlog = () => {
             </div>
         </div>
     </section>
-    <section class="container mx-auto">
+    <section class="px-2 md:px-0 container mx-auto">
         <Heading2 title="works"></Heading2>
         <div class="flex flex-col gap-[100px]">
             <div>
                 <Heading3 title="Webサイト"></Heading3>
                 <div
-                    class="relative before:absolute before:block before:w-[725px] before:h-[24px] before:bg-purple-300 before:top-1/3 before:[filter:blur(65px)]"
+                    class="relative before:absolute before:block lg:before:w-[725px] md:before:w-[500px] before:w-[200px] before:h-[24px] before:bg-purple-300 lg:before:top-1/3 before:-top-1/4 before:[filter:blur(65px)]"
                 >
                     <div
                         v-if="works.length == 0"
-                        class="relative grid grid-cols-3 gap-y-4 mb-6"
+                        class="relative grid lg:grid-cols-3 grid-cols-2 gap-y-4 mb-6"
                     >
                         <div
-                            class="[&:nth-child(3n)]:ml-auto [&:nth-child(3n-1)]:mx-auto"
+                            class="lg:[&:nth-child(3n)]:ml-auto lg:[&:nth-child(3n-1)]:mx-auto"
                             v-for="i in 6"
                             :key="i"
                         >
                             <div
-                                class="w-[288px] h-[168px] bg-gray-300 rounded-md"
+                                class="aspect-video bg-gray-300 rounded-md"
                             ></div>
                         </div>
                     </div>
                     <div
                         v-if="works.length !== 0"
-                        class="relative grid grid-cols-3 gap-y-4 mb-6"
+                        class="relative grid lg:grid-cols-3 grid-cols-2 gap-x-4 gap-y-4 mb-6"
                     >
                         <div
-                            class="[&:nth-child(3n)]:ml-auto [&:nth-child(3n-1)]:mx-auto"
+                            class="lg:[&:nth-child(3n)]:ml-auto lg:[&:nth-child(3n-1)]:mx-auto"
                             v-for="work in works.slice(0, 6)"
                             @click="
                                 router.push('/works-archive/website/' + work.id)
                             "
                         >
                             <img
-                                class="w-[288px] h-[168px] rounded-md object-cover object-top hover:shadow-yellow-200/10 transition-all duration-300"
+                                class="aspect-video rounded-md object-cover object-top hover:shadow-yellow-200/10 transition-all duration-300"
                                 :src="
                                     'https://suehiro-portfolio.s3.ap-northeast-1.amazonaws.com/images/' +
                                     work.image
@@ -241,11 +258,11 @@ const parsedBlog = () => {
             <div>
                 <Heading3 title="DTP"></Heading3>
                 <div
-                    class="z-10 relative before:absolute before:block before:w-[75px] before:h-[75px] before:bg-green-300 before:top-1/3 before:[filter:blur(65px)] before:left-2/3"
+                    class="z-10 relative before:absolute before:block before:w-[75px] before:h-[75px] before:bg-green-300 before:top-1/3 before:[filter:blur(65px)] md:before:left-2/3"
                 >
                     <div
                         v-if="dtps.length == 0"
-                        class="relative grid grid-cols-3 gap-y-4 mb-6"
+                        class="relative grid lg:grid-cols-3 grid-cols-2 gap-x-4 gap-y-4 mb-6"
                     >
                         <div
                             class="[&:nth-child(3n)]:ml-auto [&:nth-child(3n-1)]:mx-auto"
@@ -253,13 +270,13 @@ const parsedBlog = () => {
                             :key="i"
                         >
                             <div
-                                class="w-[288px] h-[168px] bg-gray-300 rounded-md"
+                                class="aspect-video bg-gray-300 rounded-md"
                             ></div>
                         </div>
                     </div>
                     <div
                         v-if="dtps.length !== 0"
-                        class="relative grid grid-cols-3 gap-y-4 mb-6"
+                        class="relative grid lg:grid-cols-3 grid-cols-2 gap-x-4 gap-y-4 mb-6"
                     >
                         <div
                             class="[&:nth-child(3n)]:ml-auto [&:nth-child(3n-1)]:mx-auto"
@@ -267,7 +284,7 @@ const parsedBlog = () => {
                             @click="router.push('/works-archive/dtp/' + dtp.id)"
                         >
                             <img
-                                class="w-[288px] h-[168px] rounded-md object-cover object-top hover:shadow-yellow-200/10 transition-all duration-300"
+                                class="aspect-video rounded-md object-cover object-top hover:shadow-yellow-200/10 transition-all duration-300"
                                 :src="
                                     'https://suehiro-portfolio.s3.ap-northeast-1.amazonaws.com/images/' +
                                     dtp.image
@@ -286,7 +303,7 @@ const parsedBlog = () => {
             </div>
         </div>
     </section>
-    <section class="container mx-auto">
+    <section class="px-2 md:px-0 container mx-auto">
         <Heading2 title="blogs"></Heading2>
         <div>
             <div
@@ -298,43 +315,39 @@ const parsedBlog = () => {
                     v-for="i in 6"
                     :key="i"
                 >
-                    <div
-                        class="w-[288px] h-[168px] bg-gray-300 rounded-md"
-                    ></div>
+                    <div class="aspect-video bg-gray-300 rounded-md"></div>
                 </div>
             </div>
             <div
                 v-if="blogs.length !== 0"
-                class="relative grid grid-cols-3 gap-y-4 mb-6"
+                class="relative grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-x-4 gap-y-4 mb-6"
             >
                 <div
-                    class="[&:nth-child(3n)]:ml-auto [&:nth-child(3n-1)]:mx-auto w-[288px] h-[120px] rounded-md object-cover object-top text-gray-50 bg-gray-700 flex flex-col gap-3 px-4 py-2 cursor-pointer hover:shadow-yellow-200/10 transition-all duration-300"
+                    class="lg:lg:w-[288px] w-full [&:nth-child(3n)]:ml-auto [&:nth-child(3n-1)]:mx-auto rounded-md object-cover object-top text-gray-50 bg-gray-700 flex flex-col gap-3 px-4 py-2 cursor-pointer hover:shadow-yellow-200/10 transition-all duration-300"
                     v-for="blog in blogs.slice(0, 6)"
                 >
                     <div
                         class=""
                         @click="router.push('blogs-archive/' + blog.id)"
                     >
-                        <div>
-                            <h3
-                                class="text-xl font-bold overflow-hidden whitespace-nowrap text-ellipsis"
-                            >
-                                {{ blog.title }}
-                            </h3>
-                            <span
-                                v-on:click.prevent
-                                v-html="
-                                    marked
-                                        .parse(blog.content)
-                                        .match(
-                                            /[^\<\>]+(?=\<[^\<\>]+\>)|[^\<\>]+$/g
-                                        )
-                                        .toString()
-                                        .substring(0, 54) + '...'
-                                "
-                                class="text-sm preparsed"
-                            ></span>
-                        </div>
+                        <h3
+                            class="text-xl font-bold overflow-hidden whitespace-nowrap text-ellipsis"
+                        >
+                            {{ blog.title }}
+                        </h3>
+                        <span
+                            v-on:click.prevent
+                            v-html="
+                                marked
+                                    .parse(blog.content)
+                                    .match(
+                                        /[^\<\>]+(?=\<[^\<\>]+\>)|[^\<\>]+$/g // HTMLから文字のみ抽出
+                                    )
+                                    .toString()
+                                    .substring(0, 54) + '...'
+                            "
+                            class="text-sm preparsed"
+                        ></span>
                     </div>
                 </div>
             </div>
