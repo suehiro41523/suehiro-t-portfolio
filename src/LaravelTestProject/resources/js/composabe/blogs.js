@@ -2,6 +2,7 @@ import { ref } from "vue";
 import axios from "axios";
 
 axios.defaults.baseURL = "http://localhost/api/v1";
+axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
 axios.defaults.headers.post[
     ("Access-Control-Allow-Headers",
