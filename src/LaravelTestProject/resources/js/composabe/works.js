@@ -9,6 +9,10 @@ axios.defaults.headers.post[
     "Origin, X-Requested-With, Content-Type, Accept")
 ];
 
+axios.get().then(function (response) {
+    console.log({ headers: response.headers });
+});
+
 export default function useWorks() {
     const works = ref([]);
     const work = ref({});
