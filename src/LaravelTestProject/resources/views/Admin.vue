@@ -34,7 +34,7 @@ const envPass = import.meta.env.VITE_ADMIN_PASS;
 const clickLogin = () => {
     if (id.value == envId) {
         if (password.value == envPass) {
-            console.log("log in successed");
+            console.log("login successed");
             loggedIn.value = true;
         }
     } else {
