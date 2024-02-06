@@ -17,10 +17,10 @@ export default function useImages() {
 
     const getImages = async () => {
         const response = await axios.get("images/");
-        images.value = response.data;
+        images.value = response.data.data;
     };
-    const getWork = async (id) => {
-        const response = await axios.get("works/" + id);
+    const getImage = async (id) => {
+        const response = await axios.get("images/" + id);
         image.value = response.data.data;
     };
     const storeImage = async (data) => {
@@ -43,7 +43,7 @@ export default function useImages() {
             }
         }
     };
-    const updateWork = async (id) => {
+    const updateImage = async (id) => {
         try {
             const config = {
                 headers: {
@@ -72,24 +72,26 @@ export default function useImages() {
         //     }
         // }
     };
-    const destroyWork = async (id) => {
-        const getWorkById = (id) => {
-            return works._value.find((work) => work.id == id);
+    const destroyImage = async (id) => {
+        const getImageById = (id) => {
+            return Images._value.find((Image) => Image.id == id);
         };
 
-        if (!window.confirm(getWorkById(id).name + " を本当に削除しますか？")) {
+        if (
+            !window.confirm(getImageById(id).name + " を本当に削除しますか？")
+        ) {
             return;
         }
-        await axios.delete("works/" + id);
+        await axios.delete("images/" + id);
     };
     return {
         image,
         images,
-        getWork,
+        getImage,
         getImages,
         storeImage,
-        updateWork,
-        destroyWork,
+        updateImage,
+        destroyImage,
         errors,
     };
 }

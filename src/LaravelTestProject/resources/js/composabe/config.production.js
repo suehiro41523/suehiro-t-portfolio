@@ -1,1 +1,1 @@
-export const apiURL = "https://swehiro/api/v1"; // 本番環境のURL
+export const apiURL = "http://swehiro.com/api/v1"; // 本番環境のURL
