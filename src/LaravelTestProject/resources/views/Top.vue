@@ -72,7 +72,7 @@ const parsedBlog = () => {
         </div>
     </section>
     <section
-        class="px-2 md:px-0 container mx-auto relative mb-20 overflow-x-hidden"
+        class="px-2 md:px-0 container mx-auto relative mb-20 md:overflow-x-clip overflow-x-hidden"
     >
         <Heading2 title="about"></Heading2>
         <div

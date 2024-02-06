@@ -23,7 +23,7 @@ onMounted(() => getWorks());
     </div>
     <div
         v-if="works.length !== 0"
-        class="mx-4 md:h-auto h-[180px] [background-color:rgba(255,255,255,0.06)] lg:p-10 p-5 rounded-xl md:w-fit w-[calc(100vw-32px)] overflow-x-auto"
+        class="max-w-5xl mx-4 md:h-auto h-[180px] [background-color:rgba(255,255,255,0.06)] lg:p-10 p-5 rounded-xl md:w-fit w-[calc(100vw-32px)] overflow-x-auto"
     >
         <ul class="h-full flex lg:gap-10 gap-5">
             <li

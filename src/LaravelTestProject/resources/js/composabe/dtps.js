@@ -1,7 +1,8 @@
 import { ref } from "vue";
 import axios from "axios";
+import { apiURL } from "./config";
 
-axios.defaults.baseURL = "http://localhost/api/v1";
+axios.defaults.baseURL = apiURL;
 axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
 axios.defaults.headers.post[
