@@ -31,7 +31,7 @@ onMounted(() => getWorks());
                 v-for="(work, i) in works.slice(0, 3)"
             >
                 <img
-                    class="aspect-video h-[162px] rounded-md object-cover object-top"
+                    class="aspect-video rounded-md object-cover object-top"
                     :src="
                         'https://suehiro-portfolio.s3.ap-northeast-1.amazonaws.com/images/' +
                         work.image

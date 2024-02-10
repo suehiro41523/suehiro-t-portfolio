@@ -14,16 +14,15 @@ onMounted(() => getBlogs());
 
 <template>
     <Header></Header>
-    <main class="container min-h-screen mx-auto relative">
+    <main class="container px-4 md:px-0 min-h-screen mx-auto relative">
         <Heading2 title="blogs"></Heading2>
-        <div class="relative grid grid-cols-3 gap-y-4 mb-6">
-            <div
-                class="[&:nth-child(3n)]:ml-auto [&:nth-child(3n-1)]:mx-auto"
-                v-for="(blog, i) in blogs"
-            >
+        <div
+            class="relative md:px-0 grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-x-4 gap-y-4 mb-6"
+        >
+            <div class="" v-for="(blog, i) in blogs">
                 <router-link :to="'/blogs-archive/' + blog.id">
                     <div
-                        class="lg:w-[288px] w-[210px] h-[120px] rounded-md object-cover object-top text-gray-50 bg-gray-700 flex flex-col gap-3 px-4 py-2"
+                        class="lg:w-[288px] md:w-[210px] h-full rounded-md object-cover object-top transition-all duration-300 hover:shadow-lg hover:shadow-yellow-200/20 text-gray-50 bg-gray-700 flex flex-col gap-3 px-4 py-2"
                     >
                         <p class="text-xl font-bold">
                             {{ blog.title }}

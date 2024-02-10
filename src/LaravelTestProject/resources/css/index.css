@@ -15,6 +15,9 @@
     a {
         @apply cursor-pointer underline;
     }
+    ul {
+        @apply list-disc pl-5;
+    }
 }
 
 .preparsed {

@@ -29,18 +29,18 @@ onMounted(() => getWork(route.params.id));
 <template>
     <Header></Header>
     <main class="container mx-auto">
-        <div class="flex flex-col gap-0">
+        <div class="flex flex-col gap-0 px-4">
             <Heading2 noMargin title="Works"></Heading2>
             <h3 class="text-3xl font-bold text-gray-400 ml-4">
                 {{ work.title }}
             </h3>
-            <div class="flex gap-14 mt-14">
+            <div class="flex flex-col md:flex-row gap-14 mt-14">
                 <div
                     v-html="parsedWork()"
                     class="text-gray-50 bg-gray-700 px-3 py-4 h-fit parsed"
                 ></div>
                 <img
-                    class="max-w-[40%]"
+                    class="md:max-w-[40%]"
                     :src="
                         'https://suehiro-portfolio.s3.ap-northeast-1.amazonaws.com/images/' +
                         work.image

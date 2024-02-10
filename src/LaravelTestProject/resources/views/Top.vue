@@ -79,9 +79,7 @@ const parsedBlog = () => {
             class="mb-24 relative before:absolute before:top-[30px] before:block before:left-1/4 before:w-[474px] before:h-[474px] before:border-[5px] before:rounded-full before:border-yellow-200 before:[filter:blur(39px)]"
         >
             <Heading3 title="Web技術への思い"></Heading3>
-            <div
-                class="flex lg:flex-row flex-col-reverse lg:gap-0 gap-8 justify-between relative"
-            >
+            <div class="flex lg:flex-row flex-col-reverse gap-8 relative">
                 <div>
                     <div
                         class="mx-auto md:mx-0 md:ml-5 text-gray-700 md:text-xl text-lg font-bold px-4 py-3 bg-gray-400 w-fit rounded-lg before:w-4 before:h-[13px] before:bg-gray-400 before:block before:absolute relative before:-left-5 before:rounded-[50%] before:top-0 before:-translate-y-1/2"
@@ -118,7 +116,7 @@ const parsedBlog = () => {
                     </div>
                 </div>
                 <div
-                    class="mx-auto md:mx-0 flex [background-color:rgba(255,255,255,0.06)] p-3 rounded-xl gap-6 items-center w-fit h-fit"
+                    class="sticky right-0 top-6 mx-auto md:mx-0 flex [background-color:rgba(255,255,255,0.06)] p-3 rounded-xl gap-6 items-center w-fit h-fit"
                 >
                     <div
                         class="md:w-[120px] w-[100px] md:h-[160px] h-[133px] rounded-lg px-1 pt-[10] bg-[radial-gradient(86.65%_86.87%_at_57.92%_96.71%,#44337A_0%,#1A202C_100%)]"
@@ -244,7 +242,7 @@ const parsedBlog = () => {
                             "
                         >
                             <img
-                                class="aspect-video rounded-md object-cover object-top hover:shadow-yellow-200/10 transition-all duration-300"
+                                class="aspect-video rounded-md object-cover object-top hover:cursor-pointer transition duration-300 block hover:shadow-lg hover:shadow-yellow-200/20"
                                 :src="
                                     'https://suehiro-portfolio.s3.ap-northeast-1.amazonaws.com/images/' +
                                     work.image
@@ -284,7 +282,7 @@ const parsedBlog = () => {
                             @click="router.push('/works-archive/dtp/' + dtp.id)"
                         >
                             <img
-                                class="aspect-video rounded-md object-cover object-top hover:shadow-yellow-200/10 transition-all duration-300"
+                                class="aspect-video rounded-md object-cover object-top hover:cursor-pointer transition duration-300 block hover:shadow-lg hover:shadow-yellow-200/20"
                                 :src="
                                     'https://suehiro-portfolio.s3.ap-northeast-1.amazonaws.com/images/' +
                                     dtp.image
@@ -323,7 +321,7 @@ const parsedBlog = () => {
                 class="relative grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-x-4 gap-y-4 mb-6"
             >
                 <div
-                    class="lg:lg:w-[288px] w-full [&:nth-child(3n)]:ml-auto [&:nth-child(3n-1)]:mx-auto rounded-md object-cover object-top text-gray-50 bg-gray-700 flex flex-col gap-3 px-4 py-2 cursor-pointer hover:shadow-yellow-200/10 transition-all duration-300"
+                    class="lg:lg:w-[288px] w-full [&:nth-child(3n)]:ml-auto [&:nth-child(3n-1)]:mx-auto rounded-md object-cover object-top text-gray-50 bg-gray-700 flex flex-col gap-3 px-4 py-2 cursor-pointer transition-all duration-300 hover:shadow-lg hover:shadow-yellow-200/20"
                     v-for="blog in blogs.slice(0, 6)"
                 >
                     <div
