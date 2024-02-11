@@ -52,7 +52,7 @@ const parsedBlog = () => {
                 ありがとうございます。
             </div>
         </div>
-        <div class="absolute bottom-10">
+        <div class="absolute bottom-5 sm:bottom-10">
             <TopWorks></TopWorks>
         </div>
 
