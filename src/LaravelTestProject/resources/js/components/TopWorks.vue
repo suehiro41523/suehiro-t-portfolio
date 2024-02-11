@@ -23,11 +23,13 @@ onMounted(() => getWorks());
     </div>
     <div
         v-if="works.length !== 0"
-        class="max-w-5xl mx-4 md:h-auto h-[180px] [background-color:rgba(255,255,255,0.06)] lg:p-10 p-5 rounded-xl md:w-fit w-[calc(100vw-32px)] overflow-x-auto"
+        class="max-w-5xl mx-4 md:h-auto h-[236px] [background-color:rgba(255,255,255,0.06)] lg:p-10 py-5 rounded-xl md:w-fit w-[calc(100vw-32px)] overflow-x-auto"
     >
-        <ul class="h-full flex lg:gap-10 gap-5">
+        <ul
+            class="sm:w-auto w-[912px] sm:pr-0 px-5 h-full flex items-center lg:gap-10 gap-5"
+        >
             <li
-                class="aspect-video flex-1"
+                class="aspect-video h-fit flex-1"
                 v-for="(work, i) in works.slice(0, 3)"
             >
                 <img
