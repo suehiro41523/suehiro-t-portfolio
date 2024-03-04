@@ -6,8 +6,16 @@ import useWorks from "../js/composabe/works.js";
 import { onMounted } from "vue";
 import { useRoute } from "vue-router";
 import { marked } from "marked";
+import { useHead } from "@unhead/vue";
 
 const { getWork, work, getWorks, works } = useWorks();
+async function appendTitle() {
+    await getWork(route.params.id);
+    await useHead({
+        title: `${work.value.title} | すえひろのポートフォリオサイト`,
+    });
+}
+appendTitle();
 
 marked.setOptions({
     breaks: true,

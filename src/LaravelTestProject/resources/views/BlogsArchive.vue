@@ -6,7 +6,11 @@ import Heading3 from "../js/components/Heading3.vue";
 import useBlogs from "../js/composabe/blogs.js";
 import { onMounted } from "vue";
 import { marked } from "marked";
+import { useHead } from "@unhead/vue";
 
+useHead({
+    title: "ブログアーカイブ | すえひろのポートフォリオサイト",
+});
 const { getBlog, blog, getBlogs, blogs } = useBlogs();
 
 onMounted(() => getBlogs());
@@ -32,7 +36,7 @@ onMounted(() => getBlogs());
                                 marked
                                     .parse(blog.content)
                                     .match(
-                                        /[^\<\>]+(?=\<[^\<\>]+\>)|[^\<\>]+$/g
+                                        /[^\<\>]+(?=\<[^\<\>]+\>)|[^\<\>]+$/g,
                                     )
                                     .toString()
                                     .substring(0, 60) + '...'

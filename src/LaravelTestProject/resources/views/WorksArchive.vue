@@ -7,6 +7,11 @@ import useWorks from "../js/composabe/works.js";
 import useDtps from "../js/composabe/dtps.js";
 import router from "../js/router";
 import { onMounted } from "vue";
+import { useHead } from "@unhead/vue";
+
+useHead({
+    title: "作品アーカイブ | すえひろのポートフォリオサイト",
+});
 
 const { getWork, work, getWorks, works } = useWorks();
 const { getDtp, dtp, getDtps, dtps } = useDtps();

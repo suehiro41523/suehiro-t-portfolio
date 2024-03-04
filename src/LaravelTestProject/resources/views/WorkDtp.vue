@@ -6,9 +6,17 @@ import useDtps from "../js/composabe/dtps.js";
 import { watch, ref, onMounted } from "vue";
 import { marked } from "marked";
 import { useRoute } from "vue-router";
+import { useHead } from "@unhead/vue";
 
 const { getDtp, dtp, getDtps, dtps } = useDtps();
 
+async function appendTitle() {
+    await getDtp(route.params.id);
+    await useHead({
+        title: `${dtp.value.title} | すえひろのポートフォリオサイト`,
+    });
+}
+appendTitle();
 marked.setOptions({
     breaks: true,
 });
