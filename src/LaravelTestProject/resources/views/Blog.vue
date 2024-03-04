@@ -7,8 +7,17 @@ import { useRoute } from "vue-router";
 import { onMounted } from "vue";
 import { marked } from "marked";
 const { getBlog, blog, getBlogs, blogs } = useBlogs();
+import { useHead } from "@unhead/vue";
 
 const route = useRoute();
+
+async function appendTitle() {
+    await getBlog(route.params.id);
+    await useHead({
+        title: `${blog.value.title} | すえひろのポートフォリオサイト`,
+    });
+}
+appendTitle();
 onMounted(() => getBlog(route.params.id));
 
 marked.setOptions({

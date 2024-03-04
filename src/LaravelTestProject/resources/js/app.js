@@ -6,6 +6,8 @@
 
 import "./bootstrap";
 import { createApp } from "vue";
+import { createHead } from "@unhead/vue";
+
 import App from "./components/App.vue";
 import router from "./router";
 import "../css/index.css";
@@ -17,6 +19,7 @@ import "../css/index.css";
  */
 
 const app = createApp(App);
+const head = createHead();
 
 // import ExampleComponent from "./components/ExampleComponent.vue";
 // app.component("example-component", ExampleComponent);
@@ -38,4 +41,6 @@ const app = createApp(App);
  * an "id" attribute of "app". This element is included with the "auth"
  * scaffolding. Otherwise, you will need to add an element yourself.
  */
+app.use(head);
+
 app.use(router).mount("#app");

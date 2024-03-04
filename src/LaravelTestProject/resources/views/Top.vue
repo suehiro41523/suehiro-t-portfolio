@@ -12,8 +12,13 @@ import useWorks from "../js/composabe/works";
 import useDtps from "../js/composabe/dtps";
 import useBlogs from "../js/composabe/blogs";
 import { onMounted } from "vue";
+import { useHead } from "@unhead/vue";
 import router from "../js/router";
 import { marked } from "marked";
+
+useHead({
+    title: "すえひろのポートフォリオサイト",
+});
 
 const { getWorks, works } = useWorks();
 const { getDtps, dtps } = useDtps();
@@ -52,7 +57,7 @@ const parsedBlog = () => {
                 ありがとうございます。
             </div>
         </div>
-        <div class="absolute bottom-10">
+        <div class="absolute bottom-5 sm:bottom-10">
             <TopWorks></TopWorks>
         </div>
 
@@ -339,7 +344,7 @@ const parsedBlog = () => {
                                 marked
                                     .parse(blog.content)
                                     .match(
-                                        /[^\<\>]+(?=\<[^\<\>]+\>)|[^\<\>]+$/g // HTMLから文字のみ抽出
+                                        /[^\<\>]+(?=\<[^\<\>]+\>)|[^\<\>]+$/g, // HTMLから文字のみ抽出
                                     )
                                     .toString()
                                     .substring(0, 54) + '...'

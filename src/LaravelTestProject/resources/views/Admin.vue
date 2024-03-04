@@ -6,8 +6,12 @@ import CreateContent from "../js/components/CreateContent.vue";
 import useWorks from "../js/composabe/works.js";
 import useDtps from "../js/composabe/dtps.js";
 import useBlogs from "../js/composabe/blogs.js";
-
 import { onMounted, ref, watch } from "vue";
+import { useHead } from "@unhead/vue";
+
+useHead({
+    title: `管理画面 | すえひろのポートフォリオサイト`,
+});
 
 const { getWork, work, getWorks, works } = useWorks();
 const { getDtp, dtp, getDtps, dtps } = useDtps();

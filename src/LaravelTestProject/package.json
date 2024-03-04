@@ -20,6 +20,7 @@
         "vue": "^3.2.37"
     },
     "dependencies": {
+        "@unhead/vue": "^1.8.10",
         "marked": "^11.2.0",
         "vue-router": "^4.2.5"
     }
