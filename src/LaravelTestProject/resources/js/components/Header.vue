@@ -15,13 +15,25 @@
         <nav class="pr-5">
             <ul class="text-md flex gap-6 font-bold">
                 <li>
-                    <a class="p-2" href="/#about"> About</a>
+                    <a
+                        target="_blank"
+                        class="block p-2"
+                        href="https://github.com/suehiro41523/suehiro-t-portfolio"
+                    >
+                        <img
+                            src="../../../public/img/github-mark-white.svg"
+                            alt=""
+                        />
+                    </a>
                 </li>
                 <li>
-                    <a class="p-2" href="/#works"> Works</a>
+                    <a class="block p-2" href="/#about"> About</a>
                 </li>
                 <li>
-                    <a class="p-2" href="/#blogs"> Blog</a>
+                    <a class="block p-2" href="/#works"> Works</a>
+                </li>
+                <li>
+                    <a class="block p-2" href="/#blogs"> Blog</a>
                 </li>
             </ul>
         </nav>
