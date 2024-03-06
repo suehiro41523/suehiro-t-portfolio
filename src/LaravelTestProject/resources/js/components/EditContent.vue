@@ -44,7 +44,7 @@ watch(
                     break;
             }
         }
-    }
+    },
 );
 
 const confirmContent = async () => {
@@ -136,12 +136,12 @@ const imageSelected = () => {
 <template>
     <div v-if="props.openEdit">
         <div
-            class="bg-gray-900/10 backdrop-blur-sm fixed top-0 left-0 py-8 w-screen h-screen z-10 overflow-scroll"
+            class="fixed left-0 top-0 z-10 h-screen w-screen overflow-scroll bg-gray-900/10 py-8 backdrop-blur-sm"
         >
             <div
-                class="relative md:w-[720px] p-6 rounded-lg bg-gray-600 mx-auto z-20"
+                class="relative z-20 mx-auto rounded-lg bg-gray-600 p-6 md:w-[720px]"
             >
-                <h2 class="font-bold text-gray-500 text-xl">更新</h2>
+                <h2 class="text-xl font-bold text-gray-500">更新</h2>
 
                 <form
                     @submit.prevent
@@ -149,26 +149,26 @@ const imageSelected = () => {
                     enctype="multipart/form-data"
                 >
                     <div
-                        class="flex md:flex-row flex-col md:gap-0 gap-4 justify-between"
+                        class="flex flex-col justify-between gap-4 md:flex-row md:gap-0"
                     >
                         <div class="flex flex-col gap-6">
                             <input
                                 v-if="props.openingCategory == 'work'"
-                                class="bg-gray-700 text-gray-300 placeholder-gray-500 rounded-md px-4 py-2"
+                                class="rounded-md bg-gray-700 px-4 py-2 text-gray-300 placeholder-gray-500"
                                 placeholder="title"
                                 type="text"
                                 v-model="work.title"
                             />
                             <input
                                 v-if="props.openingCategory == 'dtp'"
-                                class="bg-gray-700 text-gray-300 placeholder-gray-500 rounded-md px-4 py-2"
+                                class="rounded-md bg-gray-700 px-4 py-2 text-gray-300 placeholder-gray-500"
                                 placeholder="title"
                                 type="text"
                                 v-model="dtp.title"
                             />
                             <input
                                 v-if="props.openingCategory == 'blog'"
-                                class="bg-gray-700 text-gray-300 placeholder-gray-500 rounded-md px-4 py-2"
+                                class="rounded-md bg-gray-700 px-4 py-2 text-gray-300 placeholder-gray-500"
                                 placeholder="title"
                                 type="text"
                                 v-model="blog.title"
@@ -176,7 +176,7 @@ const imageSelected = () => {
 
                             <textarea
                                 v-if="props.openingCategory == 'work'"
-                                class="bg-gray-700 text-gray-300 placeholder-gray-500 rounded-md px-4 py-2 resize-y"
+                                class="resize-y rounded-md bg-gray-700 px-4 py-2 text-gray-300 placeholder-gray-500"
                                 placeholder="作品について記述してください。
 Markdown式で記述できます。"
                                 name=""
@@ -187,7 +187,7 @@ Markdown式で記述できます。"
                             ></textarea>
                             <textarea
                                 v-if="props.openingCategory == 'dtp'"
-                                class="bg-gray-700 text-gray-300 placeholder-gray-500 rounded-md px-4 py-2 resize-y"
+                                class="resize-y rounded-md bg-gray-700 px-4 py-2 text-gray-300 placeholder-gray-500"
                                 placeholder="作品について記述してください。
 Markdown式で記述できます。"
                                 name=""
@@ -198,7 +198,7 @@ Markdown式で記述できます。"
                             ></textarea>
                             <textarea
                                 v-if="props.openingCategory == 'blog'"
-                                class="bg-gray-700 text-gray-300 placeholder-gray-500 rounded-md px-4 py-2 resize-y"
+                                class="resize-y rounded-md bg-gray-700 px-4 py-2 text-gray-300 placeholder-gray-500"
                                 placeholder="作品について記述してください。
 Markdown式で記述できます。"
                                 name=""
@@ -254,10 +254,10 @@ Markdown式で記述できます。"
                         </div>
                     </div>
                     <div class="flex flex-col gap-4 pt-4">
-                        <div class="flex gap-4 justify-end">
+                        <div class="flex justify-end gap-4">
                             <div
                                 v-on:click="confirmContent"
-                                class="text-gray-50 bg-green-500 p-2 rounded-md flex gap-1 text-nowrap"
+                                class="flex gap-1 text-nowrap rounded-md bg-green-500 p-2 text-gray-50"
                             >
                                 <img
                                     src="../../../public/img/ico-update.svg"
@@ -267,14 +267,14 @@ Markdown式で記述できます。"
                             </div>
                             <div
                                 v-on:click="closeEdit"
-                                class="text-gray-50 bg-red-500 p-2 rounded-md"
+                                class="rounded-md bg-red-500 p-2 text-gray-50"
                             >
                                 更新をやめる
                             </div>
                         </div>
                         <div
                             v-on:click="deleteContent"
-                            class="text-gray-50 border border-solid border-red-500 p-2 rounded-md w-fit ml-auto"
+                            class="ml-auto w-fit rounded-md border border-solid border-red-500 p-2 text-gray-50"
                         >
                             投稿を削除
                         </div>

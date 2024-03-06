@@ -6,7 +6,7 @@ defineProps({
 
 <template>
     <h3
-        class="mb-10 text-gray-100 text-xl font-bold relative ml-4 before:-left-4 before:block before:absolute before:w-[6px] before:h-full before:bg-gray-100"
+        class="relative mb-10 ml-4 text-xl font-bold text-gray-100 before:absolute before:-left-4 before:block before:h-full before:w-[6px] before:bg-gray-100"
     >
         {{ title }}
     </h3>

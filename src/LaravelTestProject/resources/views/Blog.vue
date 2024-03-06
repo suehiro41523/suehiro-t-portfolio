@@ -39,12 +39,12 @@ const parsedBlog = () => {
     <main class="container mx-auto">
         <div class="flex flex-col gap-0">
             <Heading2 noMargin title="dtps"></Heading2>
-            <h3 class="text-3xl font-bold text-gray-400 ml-4">
+            <h3 class="ml-4 text-3xl font-bold text-gray-400">
                 {{ blog.title }}
             </h3>
-            <div class="flex gap-14 mt-14">
+            <div class="mt-14 flex gap-14">
                 <div
-                    class="text-gray-50 bg-gray-700 px-3 py-4 h-fit parsed"
+                    class="parsed h-fit bg-gray-700 px-3 py-4 text-gray-50"
                     v-html="parsedBlog()"
                 ></div>
             </div>

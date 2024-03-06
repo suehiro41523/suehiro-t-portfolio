@@ -39,13 +39,13 @@ onMounted(() => getWork(route.params.id));
     <main class="container mx-auto">
         <div class="flex flex-col gap-0 px-4">
             <Heading2 noMargin title="Works"></Heading2>
-            <h3 class="text-3xl font-bold text-gray-400 ml-4">
+            <h3 class="ml-4 text-3xl font-bold text-gray-400">
                 {{ work.title }}
             </h3>
-            <div class="flex flex-col md:flex-row gap-14 mt-14">
+            <div class="mt-14 flex flex-col gap-14 md:flex-row">
                 <div
                     v-html="parsedWork()"
-                    class="text-gray-50 bg-gray-700 px-3 py-4 h-fit parsed"
+                    class="parsed h-fit bg-gray-700 px-3 py-4 text-gray-50"
                 ></div>
                 <img
                     class="md:max-w-[40%]"

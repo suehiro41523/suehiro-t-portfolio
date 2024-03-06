@@ -7,14 +7,14 @@ defineProps({
 
 <template>
     <div
-        class="w-fit lg:py-2 mb-3 flex lg:flex-row flex-col lg:gap-8 gap-2 relative ml-7 before:block before:w-[10px] before:h-[10px] before:bg-purple-400 before:rounded-full before:absolute before:top-[7px] before:-left-7"
+        class="relative mb-3 ml-7 flex w-fit flex-col gap-2 before:absolute before:-left-7 before:top-[7px] before:block before:h-[10px] before:w-[10px] before:rounded-full before:bg-purple-400 lg:flex-row lg:gap-8 lg:py-2"
     >
         <span>
             {{ goal }}
         </span>
-        <div class="text-green-500 flex items-center gap-2">
+        <div class="flex items-center gap-2 text-green-500">
             <img
-                class="w-4 h-4"
+                class="h-4 w-4"
                 src="../../../public/img/ico-checkmark.svg"
                 alt=""
             />

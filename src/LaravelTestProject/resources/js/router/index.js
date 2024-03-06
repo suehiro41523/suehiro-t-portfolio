@@ -7,7 +7,6 @@ import WorksArchive from "../../views/WorksArchive.vue";
 import WorkWeb from "../../views/WorkWeb.vue";
 import WorkDtp from "../../views/WorkDtp.vue";
 import Admin from "../../views/Admin.vue";
-import AdminEdit from "../../views/AdminEdit.vue";
 
 const router = createRouter({
     history: createWebHistory(), //import.meta.env.BASE_URL
@@ -40,10 +39,6 @@ const router = createRouter({
         {
             path: "/admin/",
             component: Admin,
-        },
-        {
-            path: "/admin/:id",
-            component: AdminEdit,
         },
     ],
     // scrollBehavior(to, from, savedPosition) {

@@ -6,7 +6,7 @@ defineProps({
 </script>
 
 <template>
-    <div class="flex md:flex-row flex-col md:gap-4 gap-0 text-xs">
+    <div class="flex flex-col gap-0 text-xs md:flex-row md:gap-4">
         <div class="flex">
             <span class="block w-[60px]">
                 {{ title }}

@@ -9,24 +9,24 @@ onMounted(() => getWorks());
 
 <template>
     <h2
-        class="text-xl font-bold text-gray-200 translate-y-3 translate-x-10 w-fit"
+        class="w-fit translate-x-10 translate-y-3 text-xl font-bold text-gray-200"
     >
         Works
     </h2>
     <div
         v-if="works.length == 0"
-        class="[background-color:rgba(255,255,255,0.06)] p-10 rounded-xl w-fit flex gap-10"
+        class="flex w-fit gap-10 rounded-xl p-10 [background-color:rgba(255,255,255,0.06)]"
     >
-        <div class="aspect-video bg-gray-300 rounded-md"></div>
-        <div class="aspect-video bg-gray-300 rounded-md"></div>
-        <div class="aspect-video bg-gray-300 rounded-md"></div>
+        <div class="aspect-video rounded-md bg-gray-300"></div>
+        <div class="aspect-video rounded-md bg-gray-300"></div>
+        <div class="aspect-video rounded-md bg-gray-300"></div>
     </div>
     <div
         v-if="works.length !== 0"
-        class="max-w-5xl mx-4 md:h-auto h-[236px] [background-color:rgba(255,255,255,0.06)] lg:p-10 py-5 rounded-xl md:w-fit w-[calc(100vw-32px)] overflow-x-auto"
+        class="mx-4 h-[236px] w-[calc(100vw-32px)] max-w-5xl overflow-x-auto rounded-xl py-5 [background-color:rgba(255,255,255,0.06)] md:h-auto md:w-fit lg:p-10"
     >
         <ul
-            class="sm:w-auto w-[912px] sm:pr-0 px-5 h-full flex items-center lg:gap-10 gap-5"
+            class="flex h-full w-[912px] items-center gap-5 px-5 sm:w-auto sm:pr-0 lg:gap-10"
         >
             <li
                 class="aspect-video h-fit flex-1"

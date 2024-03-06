@@ -21,13 +21,13 @@ onMounted(() => getDtps());
 
 <template>
     <Header></Header>
-    <main class="container md:px-0 px-4 min-h-screen mx-auto relative">
+    <main class="container relative mx-auto min-h-screen px-4 md:px-0">
         <div>
             <Heading2 noMargin title="Works"></Heading2>
-            <div class="text-gray-50 text-3xl font-bold mb-20">作品一覧</div>
+            <div class="mb-20 text-3xl font-bold text-gray-50">作品一覧</div>
             <Heading3 title="Webサイト"></Heading3>
             <div
-                class="relative max-w-[100vw] grid md:grid-cols-3 grid-cols-2 gap-x-4 gap-y-4 mb-6"
+                class="relative mb-6 grid max-w-[100vw] grid-cols-2 gap-x-4 gap-y-4 md:grid-cols-3"
             >
                 <div
                     class="md:[&:nth-child(3n)]:ml-auto md:[&:nth-child(3n-1)]:mx-auto"
@@ -38,12 +38,12 @@ onMounted(() => getDtps());
                         :to="'/works-archive/website/' + work.id"
                     >
                         <p
-                            class="w-fit text-gray-50 font-bold md:text-base text-sm whitespace-nowrap text-ellipsis"
+                            class="w-fit text-ellipsis whitespace-nowrap text-sm font-bold text-gray-50 md:text-base"
                         >
                             {{ work.title }}
                         </p>
                         <img
-                            class="lg:w-[288px] w-[210px] aspect-video rounded-md object-cover object-top transition-all duration-300 hover:shadow-lg hover:shadow-yellow-200/20"
+                            class="aspect-video w-[210px] rounded-md object-cover object-top transition-all duration-300 hover:shadow-lg hover:shadow-yellow-200/20 lg:w-[288px]"
                             :src="
                                 'https://suehiro-portfolio.s3.ap-northeast-1.amazonaws.com/images/' +
                                 work.image
@@ -55,16 +55,16 @@ onMounted(() => getDtps());
             </div>
             <Heading3 title="DTP"></Heading3>
             <div
-                class="relative max-w-[100vw] grid md:grid-cols-3 grid-cols-2 gap-x-4 gap-y-4 mb-6"
+                class="relative mb-6 grid max-w-[100vw] grid-cols-2 gap-x-4 gap-y-4 md:grid-cols-3"
             >
                 <div
                     class="md:[&:nth-child(3n)]:ml-auto md:[&:nth-child(3n-1)]:mx-auto"
                     v-for="dtp in dtps"
                     @click="router.push('/works-archive/dtp/' + dtp.id)"
                 >
-                    <p class="text-gray-50 font-bold">{{ dtp.title }}</p>
+                    <p class="font-bold text-gray-50">{{ dtp.title }}</p>
                     <img
-                        class="lg:w-[288px] w-[210px] lg:h-[162px] h-[118px] rounded-md object-cover object-top transition-all duration-300 hover:shadow-lg hover:shadow-yellow-200/20"
+                        class="h-[118px] w-[210px] rounded-md object-cover object-top transition-all duration-300 hover:shadow-lg hover:shadow-yellow-200/20 lg:h-[162px] lg:w-[288px]"
                         :src="
                             'https://suehiro-portfolio.s3.ap-northeast-1.amazonaws.com/images/' +
                             dtp.image

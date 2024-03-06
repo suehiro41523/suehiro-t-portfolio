@@ -84,12 +84,12 @@ const closeCreate = () => {
         <div v-if="!loggedIn">
             <section class="">
                 <div
-                    class="flex flex-col items-center justify-center px-6 py-8 mx-auto h-[calc(100vh-160px)] lg:py-0"
+                    class="mx-auto flex h-[calc(100vh-160px)] flex-col items-center justify-center px-6 py-8 lg:py-0"
                 >
                     <div
-                        class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700"
+                        class="bg-white w-full rounded-lg shadow sm:max-w-md md:mt-0 xl:p-0 dark:border dark:border-gray-700 dark:bg-gray-800"
                     >
-                        <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                        <div class="space-y-4 p-6 sm:p-8 md:space-y-6">
                             <h1
                                 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-gray-100"
                             >
@@ -99,7 +99,7 @@ const closeCreate = () => {
                                 <div>
                                     <label
                                         for="id"
-                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100"
+                                        class="mb-2 block text-sm font-medium text-gray-900 dark:text-gray-100"
                                         >ID</label
                                     >
                                     <input
@@ -108,7 +108,7 @@ const closeCreate = () => {
                                         type="text"
                                         name="id"
                                         id="id"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-100 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        class="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                                         placeholder="your id"
                                         required=""
                                     />
@@ -116,7 +116,7 @@ const closeCreate = () => {
                                 <div>
                                     <label
                                         for="password"
-                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100"
+                                        class="mb-2 block text-sm font-medium text-gray-900 dark:text-gray-100"
                                         >パスワード</label
                                     >
                                     <input
@@ -126,7 +126,7 @@ const closeCreate = () => {
                                         name="password"
                                         id="password"
                                         placeholder="••••••••"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-100 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        class="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                                         required=""
                                     />
                                 </div>
@@ -134,7 +134,7 @@ const closeCreate = () => {
                                 <button
                                     type="submit"
                                     v-on:click.prevent="clickLogin()"
-                                    class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                    class="text-white w-full rounded-lg bg-blue-600 px-5 py-2.5 text-center text-sm font-medium hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                                 >
                                     ログイン
                                 </button>
@@ -144,17 +144,17 @@ const closeCreate = () => {
                 </div>
             </section>
         </div>
-        <div v-if="loggedIn" class="pt-32 container mx-auto md:px-0 px-4">
+        <div v-if="loggedIn" class="container mx-auto px-4 pt-32 md:px-0">
             <div class="w-[340px]">
                 <div class="flex flex-col gap-12">
                     <div>
                         <div class="flex justify-between">
-                            <h2 class="text-gray-50 font-bold text-xl">
+                            <h2 class="text-xl font-bold text-gray-50">
                                 Website
                             </h2>
                             <button
                                 v-on:click.prevent="createContent('work')"
-                                class="bg-green-400 text-xl text-gray-50 p-2 rounded-lg"
+                                class="rounded-lg bg-green-400 p-2 text-xl text-gray-50"
                             >
                                 新規登録
                             </button>
@@ -171,7 +171,7 @@ const closeCreate = () => {
                         >
                             <li v-for="work in works">
                                 <div
-                                    class="text-lg font-bold text-gray-50 bg-gray-700 px-3 py-2 rounded-md flex justify-between"
+                                    class="flex justify-between rounded-md bg-gray-700 px-3 py-2 text-lg font-bold text-gray-50"
                                     v-on:click="editContent(work, 'work')"
                                 >
                                     {{ work.title }}
@@ -185,10 +185,10 @@ const closeCreate = () => {
                     </div>
                     <div>
                         <div class="flex justify-between">
-                            <h2 class="text-gray-50 font-bold text-xl">DTP</h2>
+                            <h2 class="text-xl font-bold text-gray-50">DTP</h2>
                             <button
                                 v-on:click.prevent="createContent('dtp')"
-                                class="bg-green-400 text-xl text-gray-50 p-2 rounded-lg"
+                                class="rounded-lg bg-green-400 p-2 text-xl text-gray-50"
                             >
                                 新規登録
                             </button>
@@ -205,7 +205,7 @@ const closeCreate = () => {
                         >
                             <li v-for="dtp in dtps">
                                 <div
-                                    class="text-lg font-bold text-gray-50 bg-gray-700 px-3 py-2 rounded-md flex justify-between"
+                                    class="flex justify-between rounded-md bg-gray-700 px-3 py-2 text-lg font-bold text-gray-50"
                                     v-on:click="editContent(dtp, 'dtp')"
                                 >
                                     {{ dtp.title }}
@@ -219,10 +219,10 @@ const closeCreate = () => {
                     </div>
                     <div>
                         <div class="flex justify-between">
-                            <h2 class="text-gray-50 font-bold text-xl">Blog</h2>
+                            <h2 class="text-xl font-bold text-gray-50">Blog</h2>
                             <button
                                 v-on:click.prevent="createContent('blog')"
-                                class="bg-green-400 text-xl text-gray-50 p-2 rounded-lg"
+                                class="rounded-lg bg-green-400 p-2 text-xl text-gray-50"
                             >
                                 新規登録
                             </button>
@@ -239,7 +239,7 @@ const closeCreate = () => {
                         >
                             <li v-for="blog in blogs">
                                 <div
-                                    class="text-lg font-bold text-gray-50 bg-gray-700 px-3 py-2 rounded-md flex justify-between"
+                                    class="flex justify-between rounded-md bg-gray-700 px-3 py-2 text-lg font-bold text-gray-50"
                                     v-on:click="editContent(blog, 'blog')"
                                 >
                                     {{ blog.title }}

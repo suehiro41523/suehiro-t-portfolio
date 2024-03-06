@@ -40,17 +40,17 @@ const parsedBlog = () => {
 
 <template>
     <Header></Header>
-    <section class="container min-h-screen mx-auto relative">
+    <section class="container relative mx-auto min-h-screen">
         <div
-            class="text-nowrap w-fit absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            class="absolute left-1/2 top-1/2 w-fit -translate-x-1/2 -translate-y-1/2 text-nowrap"
         >
-            <h2 class="text-gray-400 text-2xl leading-8 font-bold">
+            <h2 class="text-2xl font-bold leading-8 text-gray-400">
                 すえひろの
                 <br class="lg:hidden" />
                 ポートフォリオサイト
             </h2>
             <div
-                class="text-gray-400 font-bold leading-7 tracking-[2.7px] text-lg"
+                class="text-lg font-bold leading-7 tracking-[2.7px] text-gray-400"
             >
                 をご覧いただき
                 <br class="lg:hidden" />
@@ -62,45 +62,45 @@ const parsedBlog = () => {
         </div>
 
         <div
-            class="md:w-[100px] w-[60px] md:h-[100px] h-[60px] bg-yellow-200 [filter:blur(72px)] absolute md:top-1/4 top-1/2 left-1/4"
+            class="absolute left-1/4 top-1/2 h-[60px] w-[60px] bg-yellow-200 [filter:blur(72px)] md:top-1/4 md:h-[100px] md:w-[100px]"
         ></div>
         <div
-            class="w-[100px] h-[100px] bg-gray-600 [filter:blur(72px)] absolute top-3/4 left-1/3"
+            class="absolute left-1/3 top-3/4 h-[100px] w-[100px] bg-gray-600 [filter:blur(72px)]"
         ></div>
-        <div class="absolute flex gap-[88px] right-1/4 -top-8">
+        <div class="absolute -top-8 right-1/4 flex gap-[88px]">
             <div
-                class="w-14 md:h-[446px] h-[370px] bg-purple-600 [filter:blur(43.5px)] rotate-[-30deg]"
+                class="h-[370px] w-14 rotate-[-30deg] bg-purple-600 [filter:blur(43.5px)] md:h-[446px]"
             ></div>
             <div
-                class="w-[25px] md:h-[446px] h-[370px] bg-blue-400 [filter:blur(43.5px)] rotate-[-30deg]"
+                class="h-[370px] w-[25px] rotate-[-30deg] bg-blue-400 [filter:blur(43.5px)] md:h-[446px]"
             ></div>
         </div>
     </section>
     <section
-        class="px-2 md:px-0 container mx-auto relative mb-20 md:overflow-x-clip overflow-x-hidden"
+        class="container relative mx-auto mb-20 overflow-x-hidden px-2 md:overflow-x-clip md:px-0"
     >
         <Heading2 title="about"></Heading2>
         <div
-            class="mb-24 relative before:absolute before:top-[30px] before:block before:left-1/4 before:w-[474px] before:h-[474px] before:border-[5px] before:rounded-full before:border-yellow-200 before:[filter:blur(39px)]"
+            class="relative mb-24 before:absolute before:left-1/4 before:top-[30px] before:block before:h-[474px] before:w-[474px] before:rounded-full before:border-[5px] before:border-yellow-200 before:[filter:blur(39px)]"
         >
             <Heading3 title="Web技術への思い"></Heading3>
-            <div class="flex lg:flex-row flex-col-reverse gap-8 relative">
+            <div class="relative flex flex-col-reverse gap-8 lg:flex-row">
                 <div>
                     <div
-                        class="mx-auto md:mx-0 md:ml-5 text-gray-700 md:text-xl text-lg font-bold px-4 py-3 bg-gray-400 w-fit rounded-lg before:w-4 before:h-[13px] before:bg-gray-400 before:block before:absolute relative before:-left-5 before:rounded-[50%] before:top-0 before:-translate-y-1/2"
+                        class="relative mx-auto w-fit rounded-lg bg-gray-400 px-4 py-3 text-lg font-bold text-gray-700 before:absolute before:-left-5 before:top-0 before:block before:h-[13px] before:w-4 before:-translate-y-1/2 before:rounded-[50%] before:bg-gray-400 md:mx-0 md:ml-5 md:text-xl"
                     >
                         Web技術を使って
                         <br class="md:hidden" />
                         社会に貢献したい！
                     </div>
-                    <div class="text-gray-100 flex flex-col gap-3 pl-4 mt-3">
+                    <div class="mt-3 flex flex-col gap-3 pl-4 text-gray-100">
                         <span> 良くも悪くも私の原動力はこれに尽きます。 </span>
                         <span class="mt-4">
                             web技術に興味を持ったきっかけは
                             <br class="md:hidden" />大学生の時に
                         </span>
                         <div
-                            class="bg-green-600 w-fit p-1 rounded-xl rounded-tl-none"
+                            class="w-fit rounded-xl rounded-tl-none bg-green-600 p-1"
                         >
                             最近よく耳にするな〜、触ってみるか。
                         </div>
@@ -121,20 +121,20 @@ const parsedBlog = () => {
                     </div>
                 </div>
                 <div
-                    class="lg:sticky right-0 top-6 mx-auto md:mx-0 flex [background-color:rgba(255,255,255,0.06)] p-3 rounded-xl gap-6 items-center w-fit h-fit"
+                    class="right-0 top-6 mx-auto flex h-fit w-fit items-center gap-6 rounded-xl p-3 [background-color:rgba(255,255,255,0.06)] md:mx-0 lg:sticky"
                 >
                     <div
-                        class="md:w-[120px] w-[100px] md:h-[160px] h-[133px] rounded-lg px-1 pt-[10] bg-[radial-gradient(86.65%_86.87%_at_57.92%_96.71%,#44337A_0%,#1A202C_100%)]"
+                        class="h-[133px] w-[100px] rounded-lg bg-[radial-gradient(86.65%_86.87%_at_57.92%_96.71%,#44337A_0%,#1A202C_100%)] px-1 pt-[10] md:h-[160px] md:w-[120px]"
                     >
                         <img
-                            class="md:translate-y-[20px] translate-y-[13px] md:scale-110 scale-125"
+                            class="translate-y-[13px] scale-125 md:translate-y-[20px] md:scale-110"
                             src="../../public/img/suehiro-icon.png"
                             alt=""
                         />
                     </div>
                     <div class="text-gray-100">
                         <div class="text-xl font-bold">すえひろ たつや</div>
-                        <div class="flex flex-col gap-2 mt-[14px]">
+                        <div class="mt-[14px] flex flex-col gap-2">
                             <StatusItem
                                 title="現拠点"
                                 value="広島県 - 広島市"
@@ -154,9 +154,9 @@ const parsedBlog = () => {
         </div>
         <Heading3 title="これまでの学習"></Heading3>
         <div
-            class="mx-auto lg:mx-0 w-fit text-gray-100 flex lg:flex-row flex-col-reverse gap-8 justify-between"
+            class="mx-auto flex w-fit flex-col-reverse justify-between gap-8 text-gray-100 lg:mx-0 lg:flex-row"
         >
-            <div class="lg:w-1/2 max-w-[535px]">
+            <div class="max-w-[535px] lg:w-1/2">
                 当たり前と言えば当たり前ですが、<br />
                 私は定期的に目標の立て直しをして技術力の向上を図っています。<br />
                 <br />
@@ -169,7 +169,7 @@ const parsedBlog = () => {
                 webアプリの全容を理解して制作に参加することです。
             </div>
             <div
-                class="w-fit flex flex-col place-content-between relative before:absolute before:w-[2px] before:h-full before:bg-purple-400 before:left-1 before:top-4 after:absolute after:block after:w-[10px] after:h-[400px] after:bg-cyan-400 after:[filter:blur(52px)] after:left-1/2 after:-top-7 after:rotate-45"
+                class="relative flex w-fit flex-col place-content-between before:absolute before:left-1 before:top-4 before:h-full before:w-[2px] before:bg-purple-400 after:absolute after:-top-7 after:left-1/2 after:block after:h-[400px] after:w-[10px] after:rotate-45 after:bg-cyan-400 after:[filter:blur(52px)]"
             >
                 <TimelineItems
                     goal="HTMLを理解する"
@@ -195,15 +195,15 @@ const parsedBlog = () => {
         </div>
     </section>
     <section
-        class="overflow-hidden bg-gray-900 relative before:absolute before:block before:w-[43px] before:h-[43px] before:bg-green-400 before:[filter:blur(47px)] before:rounded-full before:top-1/2 before:-translate-y-1/2 after:absolute after:block after:w-[43px] after:h-[43px] after:bg-purple-300 after:[filter:blur(47px)] after:rounded-full after:top-0 after:right-0"
+        class="relative overflow-hidden bg-gray-900 before:absolute before:top-1/2 before:block before:h-[43px] before:w-[43px] before:-translate-y-1/2 before:rounded-full before:bg-green-400 before:[filter:blur(47px)] after:absolute after:right-0 after:top-0 after:block after:h-[43px] after:w-[43px] after:rounded-full after:bg-purple-300 after:[filter:blur(47px)]"
     >
-        <div class="w-fit text-gray-100 mx-auto py-8 flex flex-col gap-4">
+        <div class="mx-auto flex w-fit flex-col gap-4 py-8 text-gray-100">
             <div class="px-3">
                 と、簡単に私についてまとめてみましたが、<br />
                 上記の言葉にまとまるまでに様々な経験と思いをしてきています。
             </div>
             <div
-                class="mx-2 px-3 py-2 rounded-lg [background-color:rgba(255,255,255,0.08)]"
+                class="mx-2 rounded-lg px-3 py-2 [background-color:rgba(255,255,255,0.08)]"
             >
                 これまでの私の経験を詳しくご覧いただくお時間があればぜひ<br />
                 私のブログもご覧になってみてください。
@@ -213,17 +213,17 @@ const parsedBlog = () => {
             </div>
         </div>
     </section>
-    <section class="px-2 md:px-0 container mx-auto">
+    <section class="container mx-auto px-2 md:px-0">
         <Heading2 title="works"></Heading2>
         <div class="flex flex-col gap-[100px]">
             <div>
                 <Heading3 title="Webサイト"></Heading3>
                 <div
-                    class="relative before:absolute before:block lg:before:w-[725px] md:before:w-[500px] before:w-[200px] before:h-[24px] before:bg-purple-300 lg:before:top-1/3 before:-top-1/4 before:[filter:blur(65px)]"
+                    class="relative before:absolute before:-top-1/4 before:block before:h-[24px] before:w-[200px] before:bg-purple-300 before:[filter:blur(65px)] md:before:w-[500px] lg:before:top-1/3 lg:before:w-[725px]"
                 >
                     <div
                         v-if="works.length == 0"
-                        class="relative grid lg:grid-cols-3 grid-cols-2 gap-y-4 mb-6"
+                        class="relative mb-6 grid grid-cols-2 gap-y-4 lg:grid-cols-3"
                     >
                         <div
                             class="lg:[&:nth-child(3n)]:ml-auto lg:[&:nth-child(3n-1)]:mx-auto"
@@ -231,13 +231,13 @@ const parsedBlog = () => {
                             :key="i"
                         >
                             <div
-                                class="aspect-video bg-gray-300 rounded-md"
+                                class="aspect-video rounded-md bg-gray-300"
                             ></div>
                         </div>
                     </div>
                     <div
                         v-if="works.length !== 0"
-                        class="relative grid lg:grid-cols-3 grid-cols-2 gap-x-4 gap-y-4 mb-6"
+                        class="relative mb-6 grid grid-cols-2 gap-x-4 gap-y-4 lg:grid-cols-3"
                     >
                         <div
                             class="lg:[&:nth-child(3n)]:ml-auto lg:[&:nth-child(3n-1)]:mx-auto"
@@ -247,7 +247,7 @@ const parsedBlog = () => {
                             "
                         >
                             <img
-                                class="aspect-video rounded-md object-cover object-top hover:cursor-pointer transition duration-300 block hover:shadow-lg hover:shadow-yellow-200/20"
+                                class="block aspect-video rounded-md object-cover object-top transition duration-300 hover:cursor-pointer hover:shadow-lg hover:shadow-yellow-200/20"
                                 :src="
                                     'https://suehiro-portfolio.s3.ap-northeast-1.amazonaws.com/images/' +
                                     work.image
@@ -261,11 +261,11 @@ const parsedBlog = () => {
             <div>
                 <Heading3 title="DTP"></Heading3>
                 <div
-                    class="z-10 relative before:absolute before:block before:w-[75px] before:h-[75px] before:bg-green-300 before:top-1/3 before:[filter:blur(65px)] md:before:left-2/3"
+                    class="relative z-10 before:absolute before:top-1/3 before:block before:h-[75px] before:w-[75px] before:bg-green-300 before:[filter:blur(65px)] md:before:left-2/3"
                 >
                     <div
                         v-if="dtps.length == 0"
-                        class="relative grid lg:grid-cols-3 grid-cols-2 gap-x-4 gap-y-4 mb-6"
+                        class="relative mb-6 grid grid-cols-2 gap-x-4 gap-y-4 lg:grid-cols-3"
                     >
                         <div
                             class="[&:nth-child(3n)]:ml-auto [&:nth-child(3n-1)]:mx-auto"
@@ -273,13 +273,13 @@ const parsedBlog = () => {
                             :key="i"
                         >
                             <div
-                                class="aspect-video bg-gray-300 rounded-md"
+                                class="aspect-video rounded-md bg-gray-300"
                             ></div>
                         </div>
                     </div>
                     <div
                         v-if="dtps.length !== 0"
-                        class="relative grid lg:grid-cols-3 grid-cols-2 gap-x-4 gap-y-4 mb-6"
+                        class="relative mb-6 grid grid-cols-2 gap-x-4 gap-y-4 lg:grid-cols-3"
                     >
                         <div
                             class="[&:nth-child(3n)]:ml-auto [&:nth-child(3n-1)]:mx-auto"
@@ -287,7 +287,7 @@ const parsedBlog = () => {
                             @click="router.push('/works-archive/dtp/' + dtp.id)"
                         >
                             <img
-                                class="aspect-video rounded-md object-cover object-top hover:cursor-pointer transition duration-300 block hover:shadow-lg hover:shadow-yellow-200/20"
+                                class="block aspect-video rounded-md object-cover object-top transition duration-300 hover:cursor-pointer hover:shadow-lg hover:shadow-yellow-200/20"
                                 :src="
                                     'https://suehiro-portfolio.s3.ap-northeast-1.amazonaws.com/images/' +
                                     dtp.image
@@ -306,27 +306,27 @@ const parsedBlog = () => {
             </div>
         </div>
     </section>
-    <section class="px-2 md:px-0 container mx-auto">
+    <section class="container mx-auto px-2 md:px-0">
         <Heading2 title="blogs"></Heading2>
         <div>
             <div
                 v-if="blogs.length == 0"
-                class="relative grid grid-cols-3 gap-y-4 mb-6"
+                class="relative mb-6 grid grid-cols-3 gap-y-4"
             >
                 <div
                     class="[&:nth-child(3n)]:ml-auto [&:nth-child(3n-1)]:mx-auto"
                     v-for="i in 6"
                     :key="i"
                 >
-                    <div class="aspect-video bg-gray-300 rounded-md"></div>
+                    <div class="aspect-video rounded-md bg-gray-300"></div>
                 </div>
             </div>
             <div
                 v-if="blogs.length !== 0"
-                class="relative grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-x-4 gap-y-4 mb-6"
+                class="relative mb-6 grid grid-cols-1 gap-x-4 gap-y-4 md:grid-cols-2 lg:grid-cols-3"
             >
                 <div
-                    class="lg:lg:w-[288px] w-full [&:nth-child(3n)]:ml-auto [&:nth-child(3n-1)]:mx-auto rounded-md object-cover object-top text-gray-50 bg-gray-700 flex flex-col gap-3 px-4 py-2 cursor-pointer transition-all duration-300 hover:shadow-lg hover:shadow-yellow-200/20"
+                    class="flex w-full cursor-pointer flex-col gap-3 rounded-md bg-gray-700 object-cover object-top px-4 py-2 text-gray-50 transition-all duration-300 hover:shadow-lg hover:shadow-yellow-200/20 lg:lg:w-[288px] [&:nth-child(3n)]:ml-auto [&:nth-child(3n-1)]:mx-auto"
                     v-for="blog in blogs.slice(0, 6)"
                 >
                     <div
@@ -334,7 +334,7 @@ const parsedBlog = () => {
                         @click="router.push('blogs-archive/' + blog.id)"
                     >
                         <h3
-                            class="text-xl font-bold overflow-hidden whitespace-nowrap text-ellipsis"
+                            class="overflow-hidden text-ellipsis whitespace-nowrap text-xl font-bold"
                         >
                             {{ blog.title }}
                         </h3>
@@ -344,12 +344,12 @@ const parsedBlog = () => {
                                 marked
                                     .parse(blog.content)
                                     .match(
-                                        /[^\<\>]+(?=\<[^\<\>]+\>)|[^\<\>]+$/g // HTMLから文字のみ抽出
+                                        /[^\<\>]+(?=\<[^\<\>]+\>)|[^\<\>]+$/g, // HTMLから文字のみ抽出
                                     )
                                     .toString()
                                     .substring(0, 54) + '...'
                             "
-                            class="text-sm preparsed"
+                            class="preparsed text-sm"
                         ></span>
                     </div>
                 </div>

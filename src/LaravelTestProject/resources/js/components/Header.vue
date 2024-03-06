@@ -2,7 +2,7 @@
 
 <template>
     <header
-        class="text-gray-300 container left-1/2 -translate-x-1/2 flex justify-between items-center absolute top-0 z-10"
+        class="container absolute left-1/2 top-0 z-10 flex -translate-x-1/2 items-center justify-between text-gray-300"
     >
         <div>
             <router-link to="/">
@@ -13,7 +13,7 @@
             </router-link>
         </div>
         <nav class="pr-5">
-            <ul class="flex gap-6 text-md font-bold">
+            <ul class="text-md flex gap-6 font-bold">
                 <li>
                     <a class="p-2" href="/#about"> About</a>
                 </li>
