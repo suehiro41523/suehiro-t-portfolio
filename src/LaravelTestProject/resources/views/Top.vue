@@ -121,7 +121,7 @@ const parsedBlog = () => {
                     </div>
                 </div>
                 <div
-                    class="sticky right-0 top-6 mx-auto md:mx-0 flex [background-color:rgba(255,255,255,0.06)] p-3 rounded-xl gap-6 items-center w-fit h-fit"
+                    class="lg:sticky right-0 top-6 mx-auto md:mx-0 flex [background-color:rgba(255,255,255,0.06)] p-3 rounded-xl gap-6 items-center w-fit h-fit"
                 >
                     <div
                         class="md:w-[120px] w-[100px] md:h-[160px] h-[133px] rounded-lg px-1 pt-[10] bg-[radial-gradient(86.65%_86.87%_at_57.92%_96.71%,#44337A_0%,#1A202C_100%)]"
@@ -344,7 +344,7 @@ const parsedBlog = () => {
                                 marked
                                     .parse(blog.content)
                                     .match(
-                                        /[^\<\>]+(?=\<[^\<\>]+\>)|[^\<\>]+$/g, // HTMLから文字のみ抽出
+                                        /[^\<\>]+(?=\<[^\<\>]+\>)|[^\<\>]+$/g // HTMLから文字のみ抽出
                                     )
                                     .toString()
                                     .substring(0, 54) + '...'
